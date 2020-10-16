@@ -37,9 +37,13 @@ class AnnoncesTable extends Table
             'foreignKey' => 'id_entreprise',
         ]);
 
-        $this->belongsToMany('Categories');
+        $this->belongsToMany('Categories', [
+            'joinTable' => 'annonces_categories',
+        ]);
 
-        $this->belongsToMany('Candidats');
+        $this->belongsToMany('Candidats', [
+            'joinTable' => 'annonces_candidats',
+        ]);
 
         // Add the behavior to your table
         $this->addBehavior('Search.Search');

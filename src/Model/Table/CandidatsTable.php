@@ -32,7 +32,9 @@ class CandidatsTable extends Table
         ->setForeignKey('id_user') // Avant la version CakePHP 3.4, utilisez foreignKey() au lieu de setForeignKey()
         ->setJoinType('INNER');
 
-        $this->belongsToMany('Annonces');
+        $this->belongsToMany('Annonces', [
+            'joinTable' => 'annonces_candidats',
+        ]);
 
         // Add the behavior to your table
         $this->addBehavior('Search.Search');
