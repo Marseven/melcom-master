@@ -21,7 +21,7 @@ class MelcomController extends AppController
         parent::initialize();
 
         $this->loadComponent('Paginator');
-        
+
         $this->Auth->allow(['index', 'apropos', 'contact', 'search']);
         $user = $this->Auth->user();
         if($user != null){
@@ -36,7 +36,7 @@ class MelcomController extends AppController
     public function index(){
 
         $annonceTable = TableRegistry::getTableLocator()->get('annonces');
-        $annonces = $this->Paginator->paginate($annonceTable->find()->contain(['Categories', 'Entreprises']));
+        $annonces = $this->Paginator->paginate($annonceTable->find());
         $categorieTable = TableRegistry::getTableLocator()->get('categories');
         $categories = $categorieTable->find()->contain(['Annonces'])->all();
 
@@ -63,7 +63,7 @@ class MelcomController extends AppController
 
     public function search()
     {
-        
+
         $annonceTable = TableRegistry::getTableLocator()->get('annonces');
 
         $annonces = $this->Paginator->paginate($annonceTable->find()->contain(['Categories', 'Entreprises'])->where(['ville' => $this->request->getQuery()['ville']]));
