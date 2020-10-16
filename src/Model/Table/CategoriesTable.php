@@ -26,7 +26,7 @@ class CategoriesTable extends Table
     {
         parent::initialize($config);
 
-        $this->setTable('categories');
+        $this->setTable('Categories');
 
         $this->belongsToMany('Annonces');
 

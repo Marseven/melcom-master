@@ -10,7 +10,7 @@ use Search\Manager;
 
 /**
  * Annonces Model
- * 
+ *
  * @mixin \Search\Model\Behavior\SearchBehavior
  *
  */
@@ -36,7 +36,7 @@ class AnnoncesTable extends Table
         $this->belongsTo('Entreprises', [
             'foreignKey' => 'id_entreprise',
         ]);
-        
+
         $this->belongsToMany('Categories');
 
         $this->belongsToMany('Candidats');
