@@ -299,9 +299,9 @@ return [
             'driver' => Mysql::class,
             'persistent' => false,
             'host' => 'localhost',
-            'username' => 'root',
-            'password' => '',
-            'database' => 'melcom',
+            'username' => 'u818055578_melcom',
+            'password' => 'Melcom@2020',
+            'database' => 'u818055578_melcom',
             'timezone' => 'UTC',
 
             /**
