@@ -227,7 +227,7 @@ return [
              * are used in SMTP transports
              */
             'host' => 'localhost',
-            'port' => 1025,
+            'port' => 25,
             'timeout' => 30,
             /*
              * It is recommended to set these options through your environment or app_local.php
@@ -260,7 +260,7 @@ return [
      */
     'Email' => [
         'default' => [
-            'transport' => 'google',
+            'transport' => 'default',
             'from' => 'contact@melcom.com',
             /*
              * Will by default be set to config value of App.encoding, if that exists otherwise to UTF-8.

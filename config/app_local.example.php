@@ -44,10 +44,9 @@ return [
              */
             //'port' => 'non_standard_port_number',
 
-            'username' => 'my_app',
-            'password' => 'secret',
-
-            'database' => 'my_app',
+            'username' => 'u818055578_melcom',
+            'password' => 'Melcom@2020',
+            'database' => 'u818055578_melcom',
             /**
              * If not using the default 'public' schema with the PostgreSQL driver
              * set it here.
@@ -66,9 +65,9 @@ return [
         'test' => [
             'host' => 'localhost',
             //'port' => 'non_standard_port_number',
-            'username' => 'my_app',
-            'password' => 'secret',
-            'database' => 'test_myapp',
+            'username' => 'u818055578_melcom',
+            'password' => 'Melcom@2020',
+            'database' => 'u818055578_melcom',
             //'schema' => 'myapp',
             'url' => env('DATABASE_TEST_URL', null),
         ],
