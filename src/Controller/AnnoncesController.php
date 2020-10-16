@@ -39,9 +39,9 @@ class AnnoncesController extends AppController
      */
     public function index()
     {
-        $annonceTable = TableRegistry::getTableLocator()->get('annonces');
+        $annonceTable = TableRegistry::getTableLocator()->get('Annonces');
         $annonces = $this->Paginator->paginate($annonceTable->find()->contain(['Categories', 'Entreprises']));
-        $categorieTable = TableRegistry::getTableLocator()->get('categories');
+        $categorieTable = TableRegistry::getTableLocator()->get('Categories');
         $categories = $categorieTable->find()->contain(['Annonces'])->all();
 
         $this->set(compact('annonces'));
@@ -75,7 +75,7 @@ class AnnoncesController extends AppController
 
     public function list()
     {
-        $annonceTable = TableRegistry::getTableLocator()->get('annonces');
+        $annonceTable = TableRegistry::getTableLocator()->get('Annonces');
         $annonces = $this->Paginator->paginate($annonceTable->find()->contain(['Categories', 'Entreprises']));
 
         $this->set(compact('annonces'));

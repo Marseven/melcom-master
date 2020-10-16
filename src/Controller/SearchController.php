@@ -27,13 +27,13 @@ class SearchController extends AppController
     public function index()
     {
 
-        $annonceTable = TableRegistry::getTableLocator()->get('annonces');
+        $annonceTable = TableRegistry::getTableLocator()->get('Annonces');
         $annonces = $this->Paginator->paginate($annonceTable->find('Search', ['search' => $this->request->getQuery()['q']])->contain(['Categories', 'Entreprises']));
 
-        $entrepriseTable = TableRegistry::getTableLocator()->get('entreprises');
+        $entrepriseTable = TableRegistry::getTableLocator()->get('Entreprises');
         $entreprises = $this->Paginator->paginate($entrepriseTable->find('Search', ['search' => $this->request->getQuery()['q']])->contain(['Annonces']));
 
-        $candidatTable = TableRegistry::getTableLocator()->get('candidats');
+        $candidatTable = TableRegistry::getTableLocator()->get('Candidats');
         $candidats = $this->Paginator->paginate($candidatTable->find('Search', ['search' => $this->request->getQuery()['q']])->contain(['Annonces']));
 
 
@@ -52,7 +52,7 @@ class SearchController extends AppController
 
     public function annonceByCategory($category)
     {
-        $categorieTable = TableRegistry::getTableLocator()->get('categories');
+        $categorieTable = TableRegistry::getTableLocator()->get('Categories');
         $query = $categorieTable->find()->contain(['Annonces'])->where(['id' => $category])->all();
         $query = $query->first()->annonces;
         $annonces = $query;
@@ -63,7 +63,7 @@ class SearchController extends AppController
 
     public function candidatByAnnonce($annonce)
     {
-        $candidatTable = TableRegistry::getTableLocator()->get('annonces');
+        $candidatTable = TableRegistry::getTableLocator()->get('Annonces');
         $query = $candidatTable->find()->contain(['Annonces'])->where(['id_annonce' => $annonce]);
         $candidats = $this->Paginator->paginate($query);
         $this->set(compact('candidats'));
@@ -73,7 +73,7 @@ class SearchController extends AppController
 
     public function annonceByEntreprise($entreprise)
     {
-        $annonceTable = TableRegistry::getTableLocator()->get('annonces');
+        $annonceTable = TableRegistry::getTableLocator()->get('Annonces');
         $query = $annonceTable->find()->contain(['Categories', 'Entreprises'])->where(['annonces.id_entreprise' => $entreprise]);
         $annonces = $this->Paginator->paginate($query);
         $this->set(compact('annonces'));

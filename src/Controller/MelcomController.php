@@ -35,9 +35,9 @@ class MelcomController extends AppController
 
     public function index(){
 
-        $annonceTable = TableRegistry::getTableLocator()->get('annonces');
+        $annonceTable = TableRegistry::getTableLocator()->get('Annonces');
         $annonces = $this->Paginator->paginate($annonceTable->find()->contain(['Categories', 'Entreprises']));
-        $categorieTable = TableRegistry::getTableLocator()->get('categories');
+        $categorieTable = TableRegistry::getTableLocator()->get('Categories');
         $categories = $categorieTable->find()->contain(['Annonces'])->all();
 
         $this->set(compact('annonces'));
@@ -64,14 +64,14 @@ class MelcomController extends AppController
     public function search()
     {
 
-        $annonceTable = TableRegistry::getTableLocator()->get('annonces');
+        $annonceTable = TableRegistry::getTableLocator()->get('Annonces');
 
         $annonces = $this->Paginator->paginate($annonceTable->find()->contain(['Categories', 'Entreprises'])->where(['ville' => $this->request->getQuery()['ville']]));
 
         $this->set(compact('annonces'));
         $this->set('_serialize', ['annonces']);
 
-        $categorieTable = TableRegistry::getTableLocator()->get('categories');
+        $categorieTable = TableRegistry::getTableLocator()->get('Categories');
         $categories = $categorieTable->find()->contain(['Annonces'])->all();
         $this->set(compact('categories'));
 

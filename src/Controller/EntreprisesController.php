@@ -35,7 +35,7 @@ class EntreprisesController extends AppController
     }
 
     public function index(){
-        $entrepriseTable = TableRegistry::getTableLocator()->get('entreprises');
+        $entrepriseTable = TableRegistry::getTableLocator()->get('Entreprises');
         $entreprises =  $this->Paginator->paginate($entrepriseTable->find()->contain('Annonces'));
 
         $this->menu('annonces');
@@ -47,7 +47,7 @@ class EntreprisesController extends AppController
     }
 
     public function add(){
-        $entrepriseTable = TableRegistry::getTableLocator()->get('entreprises');
+        $entrepriseTable = TableRegistry::getTableLocator()->get('Entreprises');
         $entreprise = $entrepriseTable->newEntity([]);
 
         $usersTable = TableRegistry::getTableLocator()->get('users');
@@ -114,7 +114,7 @@ class EntreprisesController extends AppController
     }
 
     public function edit($id = null){
-        $entrepriseTable = TableRegistry::getTableLocator()->get('entreprises');
+        $entrepriseTable = TableRegistry::getTableLocator()->get('Entreprises');
         $entreprise = $entrepriseTable->get($id);
 
         $usersTable = TableRegistry::getTableLocator()->get('users');
@@ -181,7 +181,7 @@ class EntreprisesController extends AppController
     }
 
     public function list(){
-        $entrepriseTable = TableRegistry::getTableLocator()->get('entreprises');
+        $entrepriseTable = TableRegistry::getTableLocator()->get('Entreprises');
 
         $entreprises = $this->paginate($entrepriseTable);
 
@@ -193,7 +193,7 @@ class EntreprisesController extends AppController
 
     public function annonceByEntreprise($entreprise)
     {
-        $annonceTable = TableRegistry::getTableLocator()->get('annonces');
+        $annonceTable = TableRegistry::getTableLocator()->get('Annonces');
         $query = $annonceTable->find()->contain(['Categories', 'Entreprises'])->where(['annonces.id_entreprise' => $entreprise]);
         $annonces = $this->Paginator->paginate($query);
         $this->set(compact('annonces'));
@@ -203,7 +203,7 @@ class EntreprisesController extends AppController
 
     public function candidatByAnnonce($entreprise)
     {
-        $annonceTable = TableRegistry::getTableLocator()->get('annonces');
+        $annonceTable = TableRegistry::getTableLocator()->get('Annonces');
         $query = $annonceTable->find()->contain(['Candidats'])->where(['id_entreprise' => $entreprise]);
         $candidats = $this->Paginator->paginate($query);
         $this->set(compact('candidats'));
@@ -214,7 +214,7 @@ class EntreprisesController extends AppController
 
     public function delete($id = null)
     {
-        $entrepriseTable = TableRegistry::getTableLocator()->get('entreprises');
+        $entrepriseTable = TableRegistry::getTableLocator()->get('Entreprises');
         $entreprise = $entrepriseTable->get($id);
 
         $usersTable = TableRegistry::getTableLocator()->get('users');

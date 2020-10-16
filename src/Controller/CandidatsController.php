@@ -37,7 +37,7 @@ class CandidatsController extends AppController
     }
 
     public function index(){
-        $candidatTable = TableRegistry::getTableLocator()->get('candidats');
+        $candidatTable = TableRegistry::getTableLocator()->get('Candidats');
         $candidats = $this->Paginator->paginate($candidatTable->find());
 
         $this->set(compact('candidats'));
@@ -47,7 +47,7 @@ class CandidatsController extends AppController
     }
 
     public function list(){
-        $candidatTable = TableRegistry::getTableLocator()->get('candidats');
+        $candidatTable = TableRegistry::getTableLocator()->get('Candidats');
         $candidats = $this->Paginator->paginate($candidatTable->find());
 
         $this->set(compact('candidats'));
@@ -59,7 +59,7 @@ class CandidatsController extends AppController
     public function annonceByCandidat($candidat)
     {
         $candidatTable = TableRegistry::getTableLocator()->get('Candidats');
-        $query = $candidatTable->find()->contain(['Annonces'])->where(['id_candidat' => $candidat]);
+        $query = $candidatTable->find()->contain(['Annonces'])->where(['id' => $candidat]);
         $candidats = $this->Paginator->paginate($query);
         $this->set(compact('candidats'));
         $this->set('_serialize', ['candidats']);
@@ -68,14 +68,14 @@ class CandidatsController extends AppController
 
 
     public function add(){
-        $annonceTable = TableRegistry::getTableLocator()->get('annonces');
+        $annonceTable = TableRegistry::getTableLocator()->get('Annonces');
         $annonces = $annonceTable->find()->all();
         $annonces = $this->tableAnc($annonces);
 
-        $candidatTable = TableRegistry::getTableLocator()->get('candidats');
+        $candidatTable = TableRegistry::getTableLocator()->get('Candidats');
         $candidat = $candidatTable->newEntity([]);
 
-        $usersTable = TableRegistry::getTableLocator()->get('users');
+        $usersTable = TableRegistry::getTableLocator()->get('Users');
         $user = $usersTable->newEntity([]);
 
         if ($this->request->is('post')) {
@@ -144,13 +144,13 @@ class CandidatsController extends AppController
     }
 
     public function edit($id=null){
-        $annonce_candidatTable = TableRegistry::getTableLocator()->get('annonces_candidats');
+        $annonce_candidatTable = TableRegistry::getTableLocator()->get('Annonces_candidats');
 
-        $annonceTable = TableRegistry::getTableLocator()->get('annonces');
+        $annonceTable = TableRegistry::getTableLocator()->get('Annonces');
         $annonces = $annonceTable->find()->all();
         $annonces = $this->tableAnc($annonces);
 
-        $candidatTable = TableRegistry::getTableLocator()->get('candidats');
+        $candidatTable = TableRegistry::getTableLocator()->get('Candidats');
         $candidat = $candidatTable->get($id);
 
         $usersTable = TableRegistry::getTableLocator()->get('users');
@@ -223,7 +223,7 @@ class CandidatsController extends AppController
 
     public function payer($candidat){
 
-        $candidatTable = TableRegistry::getTableLocator()->get('candidats'); $candidatTable = TableRegistry::getTableLocator()->get('candidats');
+        $candidatTable = TableRegistry::getTableLocator()->get('Candidats');
         $candidat = $candidatTable->find()->contain('Annonces')->where(['id_candidat' => $candidat])->all();
 
         $candidat = $candidat->first();
@@ -236,7 +236,7 @@ class CandidatsController extends AppController
     }
 
     public function paiementSucces(){
-        $candidatTable = TableRegistry::getTableLocator()->get('candidats'); $candidatTable = TableRegistry::getTableLocator()->get('candidats');
+        $candidatTable = TableRegistry::getTableLocator()->get('Candidats');
         $candidat = $candidatTable->get($this->request->getQuery()['candidat']);
 
         //envoi d'un email pour informer le client de son code secret
