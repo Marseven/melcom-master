@@ -29,19 +29,19 @@ class AnnoncesTable extends Table
 
         $this->setTable('annonces');
 
-        $this->belongsTo('users', [
+        $this->belongsTo('Users', [
             'foreignKey' => 'id_user',
         ]);
 
-        $this->belongsTo('entreprises', [
+        $this->belongsTo('Entreprises', [
             'foreignKey' => 'id_entreprise',
         ]);
 
-        $this->belongsToMany('categories', [
+        $this->belongsToMany('Categories', [
             'joinTable' => 'annonces_categories',
         ]);
 
-        $this->belongsToMany('candidats', [
+        $this->belongsToMany('Candidats', [
             'joinTable' => 'annonces_candidats',
         ]);
 
