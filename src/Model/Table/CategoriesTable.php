@@ -26,13 +26,13 @@ class CategoriesTable extends Table
     {
         parent::initialize($config);
 
-        $this->setTable('Categories');
+        $this->setTable('categories');
 
-        $this->belongsToMany('Annonces', [
+        $this->belongsToMany('annonces', [
             'joinTable' => 'annonces_categories',
         ]);
 
-        $this->belongsTo('Users')
+        $this->belongsTo('users')
         ->setForeignKey('id_user') // Avant la version CakePHP 3.4, utilisez foreignKey() au lieu de setForeignKey()
         ->setJoinType('INNER');
 

@@ -14,19 +14,19 @@ class UsersTable extends Table
     {
         $this->setTable('users');
 
-        $this->hasMany('Categories')
+        $this->hasMany('categories')
              ->setForeignKey('id_user')
              ->setDependent(true);
 
-        $this->hasMany('Annonces')
+        $this->hasMany('annonces')
             ->setForeignKey('id_user')
             ->setDependent(true);
 
-        $this->hasMany('Entreprises')
+        $this->hasMany('entreprises')
             ->setForeignKey('id_user')
             ->setDependent(true);
 
-        $this->hasMany('Candidats')
+        $this->hasMany('candidats')
             ->setForeignKey('id_user')
             ->setDependent(true);
     }

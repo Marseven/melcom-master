@@ -29,19 +29,19 @@ class UsersController extends AppController {
 
 
 	public function index(){
-        $categorieTable = TableRegistry::getTableLocator()->get('Categories');
+        $categorieTable = TableRegistry::getTableLocator()->get('categories');
         $categories = $categorieTable->find()->all();
         $this->set('categories', $categories);
-        $annonceTable = TableRegistry::getTableLocator()->get('Annonces');
+        $annonceTable = TableRegistry::getTableLocator()->get('annonces');
         $annonces = $annonceTable->find()->all();
         $this->set('annonces', $annonces);
-        $entrepriseTable = TableRegistry::getTableLocator()->get('Entreprises');
+        $entrepriseTable = TableRegistry::getTableLocator()->get('entreprises');
         $entreprises = $entrepriseTable->find()->all();
         $this->set('entreprises', $entreprises);
-        $candidatTable = TableRegistry::getTableLocator()->get('Candidats');
+        $candidatTable = TableRegistry::getTableLocator()->get('candidats');
         $candidats = $candidatTable->find()->all();
         $this->set('candidats', $candidats);
-        $usersTable = TableRegistry::getTableLocator()->get('Users');
+        $usersTable = TableRegistry::getTableLocator()->get('users');
         $users = $usersTable->find()->where(['OR' => [['role' => 'Entreprise'], ['role' => 'Candidat']]])->all();
         $this->set('users', $users);
         $this->menu('accueil');
@@ -172,7 +172,7 @@ class UsersController extends AppController {
 
     function logout(){
         $date = date('Y-m-d H:m:s');
-        $usersTable = TableRegistry::getTableLocator()->get('Users');
+        $usersTable = TableRegistry::getTableLocator()->get('users');
         $user = $this->Auth->user();
         if(is_array($user)){
             $user = $usersTable->get($user['id']);
@@ -182,14 +182,14 @@ class UsersController extends AppController {
 
     function signup(){
         $this->menu('home');
-          $usersTable = TableRegistry::getTableLocator()->get('Users');
+          $usersTable = TableRegistry::getTableLocator()->get('users');
           $new_user = $usersTable->newEntity([]);
           if($this->request->is('post')){
             if(empty($this->request->getData()['password']) || $this->request->getData()['password'] != $this->request->getData()['password_verify']){
                 $this->Flash->set('Mots de passe différents !', ['element' => 'error']);
                 return $this->render('signup', 'login');
             }
-            $usersTable = TableRegistry::getTableLocator()->get('Users');
+            $usersTable = TableRegistry::getTableLocator()->get('users');
             $exist_email = $usersTable->find()
                 ->where(
                     [
@@ -249,7 +249,7 @@ class UsersController extends AppController {
 
     function edit($id = null){
         $this->menu('home');
-        $usersTable = TableRegistry::getTableLocator()->get('Users');
+        $usersTable = TableRegistry::getTableLocator()->get('users');
         $user = $usersTable->get($id);
         if (!$user) {
             $this->Flash->error('Ce profil n\'exite pas');
@@ -275,7 +275,7 @@ class UsersController extends AppController {
     function confirm(){
         $token = $_GET['token'];
         $token = explode('-', $token);
-        $usersTable = TableRegistry::getTableLocator()->get('Users');
+        $usersTable = TableRegistry::getTableLocator()->get('users');
         $user = $usersTable->find()
                             ->where(
                                 [
@@ -305,7 +305,7 @@ class UsersController extends AppController {
     function remember(){
         $this->menu('home');
         if($this->request->is('post')){
-            $usersTable = TableRegistry::getTableLocator()->get('Users');
+            $usersTable = TableRegistry::getTableLocator()->get('users');
             $data = $this->request->getData();
             $user = $usersTable->find()
                 ->where([
@@ -345,7 +345,7 @@ class UsersController extends AppController {
                 $this->_log('Envoi de mail de réinitialisation à utilisateur '.$user->id);
             }
         }
-        $usersTable = TableRegistry::getTableLocator()->get('Users');
+        $usersTable = TableRegistry::getTableLocator()->get('users');
         $user = $usersTable->newEmptyEntity();
         $this->set('user', $user);
         $this->render('remember');
@@ -353,7 +353,7 @@ class UsersController extends AppController {
 
     function resetPassword(){
         $this->menu('home');
-        $usersTable = TableRegistry::getTableLocator()->get('Users');
+        $usersTable = TableRegistry::getTableLocator()->get('users');
 
         if(!empty($_GET['token'])){
             $token = $_GET['token'];

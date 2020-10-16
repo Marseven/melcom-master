@@ -28,11 +28,11 @@ class EntreprisesTable extends Table
 
         $this->setTable('entreprises');
 
-        $this->hasMany('Annonces')
+        $this->hasMany('annonces')
         ->setForeignKey('id_entreprise')
         ->setDependent(true);
 
-        $this->belongsTo('Users')
+        $this->belongsTo('users')
         ->setForeignKey('id_user') // Avant la version CakePHP 3.4, utilisez foreignKey() au lieu de setForeignKey()
         ->setJoinType('INNER');
 
