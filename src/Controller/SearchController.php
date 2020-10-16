@@ -19,17 +19,17 @@ class SearchController extends AppController
             $user['confirmed_at'] = new FrozenTime($user['confirmed_at']);
             $user['reset_at'] = new FrozenTime($user['reset_at']);
             $usersTable = TableRegistry::getTableLocator()->get('Users');
-            $user = $usersTable->find()->contain(['Entreprises', 'Candidats'])->where(['id_user' => $user['id_user']])->first();
+            $user = $usersTable->find()->contain(['Entreprises', 'Candidats'])->where(['id' => $user['id']])->first();
             $this->set('user', $user);
         }
     }
 
     public function index()
     {
-        
+
         $annonceTable = TableRegistry::getTableLocator()->get('annonces');
         $annonces = $this->Paginator->paginate($annonceTable->find('Search', ['search' => $this->request->getQuery()['q']])->contain(['Categories', 'Entreprises']));
-        
+
         $entrepriseTable = TableRegistry::getTableLocator()->get('entreprises');
         $entreprises = $this->Paginator->paginate($entrepriseTable->find('Search', ['search' => $this->request->getQuery()['q']])->contain(['Annonces']));
 
@@ -53,7 +53,7 @@ class SearchController extends AppController
     public function annonceByCategory($category)
     {
         $categorieTable = TableRegistry::getTableLocator()->get('categories');
-        $query = $categorieTable->find()->contain(['Annonces'])->where(['id_categorie' => $category])->all();
+        $query = $categorieTable->find()->contain(['Annonces'])->where(['id' => $category])->all();
         $query = $query->first()->annonces;
         $annonces = $query;
         $this->set(compact('annonces'));

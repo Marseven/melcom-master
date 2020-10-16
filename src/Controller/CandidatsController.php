@@ -31,7 +31,7 @@ class CandidatsController extends AppController
             $user['confirmed_at'] = new FrozenTime($user['confirmed_at']);
             $user['reset_at'] = new FrozenTime($user['reset_at']);
             $usersTable = TableRegistry::getTableLocator()->get('Users');
-            $user = $usersTable->find()->contain(['Entreprises', 'Candidats'])->where(['id_user' => $user['id_user']])->first();
+            $user = $usersTable->find()->contain(['Entreprises', 'Candidats'])->where(['id' => $user['id']])->first();
             $this->set('user', $user);
         }
     }
@@ -115,7 +115,7 @@ class CandidatsController extends AppController
                 $user->role = 'Candidat';
 
                 if ($usersTable->save($user)) {
-                    $candidat->id_user = $user->id_user;
+                    $candidat->id = $user->id;
                     if ($candidatTable->save($candidat)) {
                         $this->Flash->success(__('Votre candidat a été enregistré.'));
                         return $this->redirect(['action' => 'payer', $candidat->id_candidat]);
@@ -227,92 +227,6 @@ class CandidatsController extends AppController
         $candidat = $candidatTable->find()->contain('Annonces')->where(['id_candidat' => $candidat])->all();
 
         $candidat = $candidat->first();
-
-
-        if(isset($this->request->getQuery()['payer']) && $this->request->getQuery()['payer'] == 'true'){
-            // =============================================================
-            // ===================== Setup Attributes ======================
-            // =============================================================
-            // E-Billing server URL
-
-            $SERVER_URL = 'http://lab.billing-easy.net/api/v1/merchant/e_bills';
-
-            // Username
-            $USER_NAME = 'aristide'; //'aristide';//
-
-            // SharedKey
-            $SHARED_KEY = 'a4e80739-61ea-430e-8ddc-db9eb7bf0783'; //a4e80739-61ea-430e-8ddc-db9eb7bf0783
-
-            // POST URL
-            $POST_URL = 'http://sandbox.billing-easy.net';
-
-
-            // Fetch all data (including those not optional) from session
-            $eb_amount = 3000;
-            $eb_shortdescription = 'Paiement de l\'abonnement 3000 FCFA.';
-            $eb_reference = $this->str_random(6);
-            $eb_email = $candidat->email;
-            $eb_msisdn = $candidat->telephone;
-            $eb_name = $candidat->nom;
-            $eb_address = $candidat->adresse;
-            $eb_city = $candidat->adresse;
-            $eb_detaileddescription = 'Paiement de l\'abonnement 3000 FCFA.';
-            $eb_additionalinfo = '';
-            $eb_callbackurl = 'http://localhost/melcom/candidats/paiementSucces?candidat='.$candidat->id_candidat;
-
-            // =============================================================
-            // ============== E-Billing server invocation ==================
-            // =============================================================
-            $global_array =
-                [
-                    'payer_email' => $eb_email,
-                    'payer_msisdn' => $eb_msisdn,
-                    'amount' => $eb_amount,
-                    'short_description' => $eb_shortdescription,
-                    'description' => $eb_detaileddescription,
-                    'due_date' => date('d/m/Y', time() + 86400),
-                    'external_reference' => $eb_reference,
-                    'payer_name' => $eb_name,
-                    'payer_address' => $eb_address,
-                    'payer_city' => $eb_city,
-                    'additional_info' => $eb_additionalinfo
-                ];
-
-            $content = json_encode($global_array);
-            $curl = curl_init($SERVER_URL);
-            curl_setopt($curl, CURLOPT_USERPWD, $USER_NAME . ":" . $SHARED_KEY);
-            curl_setopt($curl, CURLOPT_HEADER, false);
-            curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-            curl_setopt($curl, CURLOPT_HTTPHEADER, array("Content-type: application/json"));
-            curl_setopt($curl, CURLOPT_POST, true);
-            curl_setopt($curl, CURLOPT_POSTFIELDS, $content);
-            $json_response = curl_exec($curl);
-
-            $status = curl_getinfo($curl, CURLINFO_HTTP_CODE);
-
-            if ( $status != 201 ) {
-                var_dump("Error: call to URL  failed with status $status, response $json_response, curl_error " . curl_error($curl) . ", curl_errno " . curl_errno($curl));die;
-                $this->Flash->error("Error: call to URL  failed with status $status, response $json_response, curl_error " . curl_error($curl) . ", curl_errno " . curl_errno($curl));
-                //$this->Flash->error('Erreur $status eBilling Payment');
-                $this->redirect(['controller' => 'Melcom', 'action' => 'index']);
-            }
-            $date = date('Y-m-d H:m:s');
-            $connection = ConnectionManager::get('default');
-            $results = $connection
-                ->execute(
-                    'INSERT INTO paiement (email, phone, amount_order, description, date, external_reference, first_name, last_name, address, city, etat)
-					 VALUES ("'.$global_array['payer_email'].'","'.$global_array['payer_msisdn'].'","'.$global_array['amount'].'","'.$global_array['short_description'].'","'.$date.'","'.$global_array['external_reference'].'","'.$candidat->nom.'","'.$candidat->nom.'","'.$global_array['payer_address'].'","'.$global_array['payer_city'].'","En Cours")
-					'
-                );
-
-            curl_close($curl);
-
-            $response = json_decode($json_response, true);
-
-            $url = "http://localhost/post.php?invoice_number=".$response['e_bill']['bill_id']."&eb_callbackurl=".$eb_callbackurl;
-
-            return $this->redirect($url);
-        }
 
         $this->set(compact('candidat'));
         $this->set('_serialize', ['candidat']);

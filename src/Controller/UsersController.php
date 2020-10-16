@@ -22,7 +22,7 @@ class UsersController extends AppController {
             $user['confirmed_at'] = new FrozenTime($user['confirmed_at']);
             $user['reset_at'] = new FrozenTime($user['reset_at']);
             $usersTable = TableRegistry::getTableLocator()->get('Users');
-            $user = $usersTable->find()->contain(['Entreprises', 'Candidats'])->where(['id_user' => $user['id_user']])->first();
+            $user = $usersTable->find()->contain(['Entreprises', 'Candidats'])->where(['id' => $user['id']])->first();
             $this->set('user', $user);
         }
     }
@@ -175,7 +175,7 @@ class UsersController extends AppController {
         $usersTable = TableRegistry::getTableLocator()->get('Users');
         $user = $this->Auth->user();
         if(is_array($user)){
-            $user = $usersTable->get($user['id_user']);
+            $user = $usersTable->get($user['id']);
         }
         return $this->redirect(['action' => 'login']);
     }
@@ -402,7 +402,7 @@ class UsersController extends AppController {
             $usersTable->save($user);
             $this->Auth->setUser($user);
             $this->Flash->success('Mot de passe réinitialisé avec succès.');
-            $this->_log('Mot de passe réinitialisé pour utilisateur '.$user->id_user);
+            $this->_log('Mot de passe réinitialisé pour utilisateur '.$user->id);
             return $this->redirect([
                 'controller' => 'Melcom',
                 'action' => 'index',

@@ -26,7 +26,7 @@ class AnnoncesController extends AppController
           $user['confirmed_at'] = new FrozenTime($user['confirmed_at']);
           $user['reset_at'] = new FrozenTime($user['reset_at']);
           $usersTable = TableRegistry::getTableLocator()->get('Users');
-          $user = $usersTable->find()->contain(['Entreprises', 'Candidats'])->where(['id_user' => $user['id_user']])->first();
+          $user = $usersTable->find()->contain(['Entreprises', 'Candidats'])->where(['id' => $user['id']])->first();
           $this->set('user', $user);
       }
 

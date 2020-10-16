@@ -28,7 +28,7 @@ class MelcomController extends AppController
             $user['confirmed_at'] = new FrozenTime($user['confirmed_at']);
             $user['reset_at'] = new FrozenTime($user['reset_at']);
             $usersTable = TableRegistry::getTableLocator()->get('Users');
-            $user = $usersTable->find()->contain(['Entreprises', 'Candidats'])->where(['id_user' => $user['id_user']])->first();
+            $user = $usersTable->find()->contain(['Entreprises', 'Candidats'])->where(['id' => $user['id']])->first();
             $this->set('user', $user);
         }
     }
@@ -36,7 +36,7 @@ class MelcomController extends AppController
     public function index(){
 
         $annonceTable = TableRegistry::getTableLocator()->get('annonces');
-        $annonces = $this->Paginator->paginate($annonceTable->find());
+        $annonces = $this->Paginator->paginate($annonceTable->find()->contain(['Categories', 'Entreprises']));
         $categorieTable = TableRegistry::getTableLocator()->get('categories');
         $categories = $categorieTable->find()->contain(['Annonces'])->all();
 
