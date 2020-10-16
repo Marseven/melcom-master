@@ -298,7 +298,7 @@ return [
             'className' => Connection::class,
             'driver' => Mysql::class,
             'persistent' => false,
-            'host' => 'sql280.main-hosting.eu',
+            'host' => '81.16.28.1',
             'username' => 'u818055578_melcom',
             'password' => 'Melcom@2020',
             'database' => 'u818055578_melcom',
