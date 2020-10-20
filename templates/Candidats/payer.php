@@ -61,7 +61,7 @@
                             <div class="clearfix">
                                 <div class="pull-left">
                                     <h5><?= $candidat->nom ?></h5>
-                                    <a href="#">Poste visé : <?= $candidat->Annonces->titre ?> | </a>
+                                    <a href="#">Poste visé : <?= $candidat->Annonces[0]->titre ?> | </a>
                                     <a> <i class="fa fa-map-marker"></i> <?= $candidat->adresse ?></a>
                                 </div>
 
