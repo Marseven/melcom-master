@@ -118,7 +118,7 @@ class CandidatsController extends AppController
                     $candidat->id = $user->id;
                     if ($candidatTable->save($candidat)) {
                         $this->Flash->success(__('Votre candidat a été enregistré.'));
-                        return $this->redirect(['action' => 'payer', $candidat->id_candidat]);
+                        return $this->redirect(['action' => 'payer', $candidat->id]);
                     } else {
                         $this->Flash->error(__('Votre candidat n\'a pas été enregistré. S\'il vous plaît essayez plus tard.'));
                     }
@@ -192,7 +192,7 @@ class CandidatsController extends AppController
                 if ($usersTable->save($user)) {
                     if ($candidatTable->save($candidat)) {
                         $annonce_candidat = $annonce_candidatTable->newEntity([]);
-                        $annonce_candidat->candidat_id = $candidat->id_candidat;
+                        $annonce_candidat->candidat_id = $candidat->id;
                         $annonce_candidat->annonce_id =$this->request->getData()["id_annonce"];
                         $annonce_candidatTable->save($annonce_candidat);
 
@@ -208,7 +208,7 @@ class CandidatsController extends AppController
 
             }else{
                 $this->Flash->error('Mauvais type de fichier importé. Type correct : jpg, png, jpeg');
-                $this->redirect(['action' => 'edit', $candidat->id_candidat]);
+                $this->redirect(['action' => 'edit', $candidat->id]);
             }
         }
 
@@ -224,7 +224,7 @@ class CandidatsController extends AppController
     public function payer($candidat){
 
         $candidatTable = TableRegistry::getTableLocator()->get('Candidats');
-        $candidat = $candidatTable->find()->contain('Annonces')->where(['id_candidat' => $candidat])->all();
+        $candidat = $candidatTable->find()->contain('Annonces')->where(['id' => $candidat])->all();
 
         $candidat = $candidat->first();
         $reference = AppController::str_random(10);
@@ -264,19 +264,22 @@ class CandidatsController extends AppController
         );
 
 
-        //envoi d'un email pour informer le client de son code secret
-        $mail = new Email();
-        $mail->setFrom('contact@melcom.com')
-            ->setTo($candidat->email)
-            ->setSubject('Candidature - Melcom ')
-            ->setEmailFormat('html')
-            ->setTemplate('information')
-            ->setViewVars(array(
-                'last_name' => $candidat->nom,
-            ))
-            ->send();
-        $this->Flash->success('candidature enregistrée, Nous reviendrons vers vous rapidement');
-        $this->redirect(['controller' => 'Melcom','action' => 'index']);
+        if($statut_received == 200){
+                //envoi d'un email pour informer le client de son code secret
+            $mail = new Email();
+            $mail->setFrom('contact@melcom.com')
+                ->setTo($candidat->email)
+                ->setSubject('Candidature - Melcom ')
+                ->setEmailFormat('html')
+                ->setTemplate('information')
+                ->setViewVars(array(
+                    'last_name' => $candidat->nom,
+                ))
+                ->send();
+            $this->Flash->success('candidature enregistrée, Nous reviendrons vers vous rapidement');
+            $this->redirect(['controller' => 'Melcom','action' => 'index']);
+
+        }
 
     }
 
