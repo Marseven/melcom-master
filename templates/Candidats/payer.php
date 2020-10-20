@@ -1,3 +1,4 @@
+<?php debug($candidat); ?>
 <div class="header-page-title our-agents-header">
     <div class="title-overlay"></div>
     <div class="container">
