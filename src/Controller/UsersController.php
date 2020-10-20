@@ -150,7 +150,7 @@ class UsersController extends AppController {
         $usersTable = TableRegistry::getTableLocator()->get('Users');
         $user = $this->Auth->user();
         if(is_array($user)){
-            $user = $usersTable->get($user['id_user']);
+            $user = $usersTable->get($user['id']);
         }
         return $this->redirect(['action' => 'login']);
     }
@@ -377,7 +377,7 @@ class UsersController extends AppController {
             $usersTable->save($user);
             $this->Auth->setUser($user);
             $this->Flash->success('Mot de passe réinitialisé avec succès.');
-            $this->_log('Mot de passe réinitialisé pour utilisateur '.$user->id_user);
+            $this->_log('Mot de passe réinitialisé pour utilisateur '.$user->id);
             return $this->redirect([
                 'controller' => 'Melcom',
                 'action' => 'index',

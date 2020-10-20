@@ -117,7 +117,7 @@
                     <div class="notification-section text-right">
 
                       <ul class="list-inline">
-                        <?php if(isset($user) && $user->id_user != null && $user->role == 'Admin'){ ?>
+                        <?php if(isset($user) && $user->id != null && $user->role == 'Admin'){ ?>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?= $user->nom ?> <?= $user->prenom ?>
                                     <span class="caret"></span></a>
@@ -130,7 +130,7 @@
                                     <li><a href="<?= $this->Url->build(['controller' => 'Users', 'action' => 'logout']) ?>">Déconnexion</a></li>
                                 </ul>
                             </li>
-                        <?php }elseif(isset($user) && $user->id_user != null && $user->role != 'Admin'){ ?>
+                        <?php }elseif(isset($user) && $user->id != null && $user->role != 'Admin'){ ?>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?= $user->nom ?> <?= $user->prenom ?>
                                     <span class="caret"></span></a>
@@ -183,7 +183,7 @@
                         <span class="caret"></span></a>
                       <ul class="dropdown-menu">
                         <li><a href="<?= $this->Url->build(['controller' => 'Annonces', 'action' => 'index']) ?>">Liste des Annonces</a></li>
-                          <?php if(isset($user) && $user->id_user != null && $user->role == 'Admin'){ ?>
+                          <?php if(isset($user) && $user->id != null && $user->role == 'Admin'){ ?>
                             <li><a href="<?= $this->Url->build(['controller' => 'Candidats', 'action' => 'index']) ?>">Liste des Candidats</a></li>
                           <?php } ?>
                         <li><a href="<?= $this->Url->build(['controller' => 'Entreprises', 'action' => 'index']) ?>">Entreprises Partenaires</a></li>
@@ -194,7 +194,7 @@
                         <li class="<?= $postuler ?>"><a href="<?= $this->Url->build(['controller' => 'Candidats', 'action' => 'add']) ?>">Postuler</a></li>
                       <?php } ?>
 
-                      <?php if(isset($user) && $user->id_user != null && $user->role == 'Candidat'){ ?>
+                      <?php if(isset($user) && $user->id != null && $user->role == 'Candidat'){ ?>
                           <li class="dropdown <?= $ance ?>">
                               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Candidat
                                   <span class="caret"></span></a>
@@ -204,7 +204,7 @@
                           </li>
                       <?php } ?>
 
-                      <?php if(isset($user) && $user->id_user != null && $user->role == 'Entreprise'){ ?>
+                      <?php if(isset($user) && $user->id != null && $user->role == 'Entreprise'){ ?>
                           <li class="dropdown <?= $ance ?>">
                               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Entreprise
                                   <span class="caret"></span></a>
