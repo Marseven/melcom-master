@@ -74,29 +74,6 @@ class UsersController extends AppController {
 
                     if($verifyTable->save($verify)){
 
-                        /*$curl = curl_init();
-
-                        curl_setopt_array($curl, array(
-                            CURLOPT_URL => "https://api.allmysms.com/sms/send",
-                            CURLOPT_RETURNTRANSFER => true,
-                            CURLOPT_ENCODING => "",
-                            CURLOPT_MAXREDIRS => 10,
-                            CURLOPT_TIMEOUT => 30,
-                            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-                            CURLOPT_CUSTOMREQUEST => "POST",
-                            CURLOPT_POSTFIELDS => "{\r\n    \"from\": \"Melcom\",\r\n    \"to\": \"".$user['telephone']."\",\r\n    \"text\": \"".$code."\",\r\n    \"date\" : \"".date('Y-m-d H:m:s')."\"\r\n}",
-                            CURLOPT_HTTPHEADER => [
-                                "Authorization: Basic YXJpc3RpZGU6YjM3ZDMyOThkZDY3NWI0",
-                                "Content-Type: application/json",
-                                "cache-control: no-cache"
-                            ],
-                        ));
-
-                        $response = curl_exec($curl);
-                        $err = curl_error($curl);
-
-                        curl_close($curl);*/
-
                         $mail = new Email();
                         $mail->setFrom('support@melcom.com')
                             ->setTo($user['email'])
@@ -111,11 +88,9 @@ class UsersController extends AppController {
                         $mail->send();
                         $err = false;
                         if ($err == true) {
-                            //echo "cURL Error #:" . $err;
                             $this->Flash->error('Votre email ou mot de passe est incorrect.');
                             return $this->redirect(['action' => 'login']);
                         } else {
-                            //echo $response;
                             return $this->redirect(['action' => 'administrateur', $user['email']]);
                         }
 

@@ -35,7 +35,7 @@ class UsersTable extends Table
     {
         $validator
             ->requirePresence('nom')
-            ->notEmpty('nom', 'Ce champ doit être rempli.')
+            ->notEmptyString('nom', 'Ce champ doit être rempli.')
             ->requirePresence('email')
             ->add('email', [
                 'length' => [
@@ -44,11 +44,11 @@ class UsersTable extends Table
                 ]
             ])
             ->requirePresence('telephone')
-            ->notEmpty('telephone', 'Ce champ doit être rempli.')
+            ->notEmptyString('telephone', 'Ce champ doit être rempli.')
             ->requirePresence('password')
-            ->notEmpty('password', 'Ce champ doit être rempli.')
+            ->notEmptyString('password', 'Ce champ doit être rempli.')
             ->requirePresence('password_verify')
-            ->notEmpty('password_verify', 'Ce champ doit être rempli.');
+            ->notEmptyString('password_verify', 'Ce champ doit être rempli.');
 
         return $validator;
     }
