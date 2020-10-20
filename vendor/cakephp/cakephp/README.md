@@ -10,8 +10,8 @@
     <a href="https://travis-ci.com/cakephp/cakephp" target="_blank">
         <img alt="Build Status" src="https://img.shields.io/travis/com/cakephp/cakephp/master.svg?style=flat-square">
     </a>
-    <a href="https://coveralls.io/r/cakephp/cakephp?branch=master" target="_blank">
-        <img alt="Coverage Status" src="https://img.shields.io/coveralls/cakephp/cakephp/master.svg?style=flat-square">
+    <a href="https://codecov.io/gh/cakephp/cakephp/branch/master" target="_blank">
+        <img alt="Coverage Status" src="https://img.shields.io/codecov/c/github/cakephp/cakephp?style=flat-square">
     </a>
     <a href="https://squizlabs.github.io/PHP_CodeSniffer/analysis/cakephp/cakephp/" target="_blank">
         <img alt="Code Consistency" src="https://squizlabs.github.io/PHP_CodeSniffer/analysis/cakephp/cakephp/grade.svg">
@@ -40,6 +40,8 @@ a starting point. For existing applications you can run the following:
 ``` bash
 $ composer require cakephp/cakephp
 ```
+
+For details on the (minimum/maximum) PHP version see [version map](https://github.com/cakephp/cakephp/wiki#version-map).
 
 ## Running Tests
 
