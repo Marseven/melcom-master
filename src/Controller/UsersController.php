@@ -18,6 +18,7 @@ class UsersController extends AppController {
 
         $this->Auth->allow(['login', 'confirm', 'remember', 'resetPassword', 'signup', 'logout', 'administrateur']);
         $user = $this->Auth->user();
+        debug($user);die;
         if($user != null){
             $user['confirmed_at'] = new FrozenTime($user['confirmed_at']);
             $user['reset_at'] = new FrozenTime($user['reset_at']);
