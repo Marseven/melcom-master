@@ -30,7 +30,7 @@
                                             <select name="cat" class="form-control" required>
                                                 <option value="0">Selectionnez une catégorie</option>
                                                 <?php foreach($categories as $cat){ ?>
-                                                    <option value="<?= $cat->id_categorie ?>"><?= $cat->libelle ?></option>
+                                                    <option value="<?= $cat->id ?>"><?= $cat->libelle ?></option>
                                                 <?php } ?>
                                             </select>
                                         </div>
