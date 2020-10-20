@@ -24,7 +24,6 @@ class UsersController extends AppController {
             $user['reset_at'] = new FrozenTime($user['reset_at']);
             $usersTable = TableRegistry::getTableLocator()->get('Users');
             $user = $usersTable->find()->contain(['Entreprises', 'Candidats'])->where(['id' => $user['id']])->first();
-            debug($user);die;
             $this->set('user', $user);
         }
     }
