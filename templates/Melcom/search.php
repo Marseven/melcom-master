@@ -116,23 +116,6 @@
 
             <?php } ?>
 
-              <div class="pagination-content clearfix">
-                <p><?= $this->Paginator->counter() ?></p>
-
-                <nav>
-                <ul class="list-inline">
-                    <li><?= $this->Paginator->first('Prem »') ?></li>
-                    <li><?= $this->Paginator->prev('« Prec') ?></li>
-                    <li class="active"><?= $this->Paginator->numbers() ?></li>
-                    <li><?= $this->Paginator->next('Sui »') ?></li>
-                    <li><?= $this->Paginator->last('Dern »') ?></li>
-                </ul>
-                </nav>
-              </div>
-
-
-
-
 
 
             </div> <!-- end .page-content -->

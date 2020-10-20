@@ -78,7 +78,7 @@ class MelcomController extends AppController
             }
         }
 
-        $annonces = $this->Paginator->paginate($table);
+        $annonces = $table;
 
         $this->set(compact('annonces'));
         $this->set('_serialize', ['annonces']);
