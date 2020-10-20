@@ -194,7 +194,7 @@ class EntreprisesController extends AppController
     public function annonceByEntreprise($entreprise)
     {
         $annonceTable = TableRegistry::getTableLocator()->get('Annonces');
-        $query = $annonceTable->find()->contain(['Categories', 'Entreprises'])->where(['annonces.id_entreprise' => $entreprise]);
+        $query = $annonceTable->find()->contain(['Categories', 'Entreprises'])->where(['id_entreprise' => $entreprise]);
         $annonces = $this->Paginator->paginate($query);
         $this->set(compact('annonces'));
         $this->set('_serialize', ['annonces']);
