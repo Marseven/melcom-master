@@ -21,11 +21,11 @@
               <div class="col-md-12">
                 <div class="main-content">
 
-                <h1> <?= $category->id_categorie != NULL ? 'Modifier' : 'Ajouter'; ?> une catégorie </h1>
+                <h1> <?= $category->id != NULL ? 'Modifier' : 'Ajouter'; ?> une catégorie </h1>
                 <div class="table-responsive">
 
                 <?= $this->Flash->render() ?>
-                <?php if($category->id_categorie != NULL){ ?>
+                <?php if($category->id != NULL){ ?>
                     <?= $this->Form->create($category, ['url' => ['Controller' => 'Categories','action' => 'edit']]); ?>
                 <?php }else{ ?>
                     <?= $this->Form->create($category, ['url' => ['Controller' => 'Categories','action' => 'add']]); ?>
@@ -60,12 +60,12 @@
                     </div> <!-- end .job-regi-single -->
 
                     <?= $this->Form->control('id_user', array(
-                        'value' => $user->id_user,
+                        'value' => $user->id,
                         'type' => 'hidden',
                     )); ?>
 
                     <div class="save-cancel-button">
-                    <button type="submit" class="btn btn-default"><?= $category->id_categorie != NULL ? 'Modifier' : 'Ajouter'; ?></button>
+                    <button type="submit" class="btn btn-default"><?= $category->id != NULL ? 'Modifier' : 'Ajouter'; ?></button>
                     <button type="reset" class="btn btn-black">Annuler</button>
                     </div> <!-- end .save-cancel-button -->
 
@@ -101,8 +101,8 @@
                           </div> <!-- end .table-details -->
 
                           <div class="clients-job css-table-cell">
-                                <a href="<?= $this->Url->build(['controller' => 'Categories', 'action' => 'index', $categorie->id_categorie]) ?>" class="btn btn-default">Modifier</a><br><br>
-                                <a href="<?= $this->Url->build(['controller' => 'Categories', 'action' => 'delete', $categorie->id_categorie]) ?>" onclick="Êtes-vous sûr de vouloir supprimer cette catégorie ?" class="btn btn-black">Supprimer</a>
+                                <a href="<?= $this->Url->build(['controller' => 'Categories', 'action' => 'index', $categorie->id]) ?>" class="btn btn-default">Modifier</a><br><br>
+                                <a href="<?= $this->Url->build(['controller' => 'Categories', 'action' => 'delete', $categorie->id]) ?>" onclick="Êtes-vous sûr de vouloir supprimer cette catégorie ?" class="btn btn-black">Supprimer</a>
                           </div> <!-- end .days-left -->
 
                         </div> <!-- end .css-table -->

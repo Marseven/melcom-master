@@ -187,7 +187,7 @@
                 </div> <!-- end .job-regi-single -->
 
                 <?= $this->Form->control('id_user', array(
-                    'value' => $user->id_user,
+                    'value' => $user->id,
                     'type' => 'hidden',
                 )); ?>
 

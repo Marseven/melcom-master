@@ -86,8 +86,8 @@
                                             </div> <!-- end .table-details -->
 
                                             <div class="clients-job css-table-cell">
-                                                <a href="<?= $this->Url->build(['controller' => 'Candidats', 'action' => 'edit', $candidat->id_candidat]) ?>" class="btn btn-default">Modifier</a><br><br>
-                                                <a href="<?= $this->Url->build(['controller' => 'Candidats', 'action' => 'delete', $candidat->id_candidat]) ?>" onclick="Êtes-vous sûr de vouloir supprimer cette catégorie ?" class="btn btn-black">Supprimer</a>
+                                                <a href="<?= $this->Url->build(['controller' => 'Candidats', 'action' => 'edit', $candidat->id]) ?>" class="btn btn-default">Modifier</a><br><br>
+                                                <a href="<?= $this->Url->build(['controller' => 'Candidats', 'action' => 'delete', $candidat->id]) ?>" onclick="Êtes-vous sûr de vouloir supprimer cette catégorie ?" class="btn btn-black">Supprimer</a>
                                             </div> <!-- end .days-left -->
 
                                         </div> <!-- end .css-table -->

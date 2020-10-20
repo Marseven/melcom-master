@@ -20,7 +20,7 @@
             <div class="table-responsive">
 
             <?= $this->Flash->render() ?>
-              <?= $this->Form->create($edit_annonce, ['type' => 'file', 'url' => ['Controller' => 'Annonces','action' => 'edit', $edit_annonce->id_annonce], 'class' => 'default-form']); ?>
+              <?= $this->Form->create($edit_annonce, ['type' => 'file', 'url' => ['Controller' => 'Annonces','action' => 'edit', $edit_annonce->id], 'class' => 'default-form']); ?>
                 <div class="form-banner-button  mt50 mb20">
 
                   <div class="css-table">
@@ -316,7 +316,7 @@
 
 
               <?= $this->Form->control('id_user', array(
-                    'value' => $user->id_user,
+                    'value' => $user->id,
                     'type' => 'hidden',
                 )); ?>
 

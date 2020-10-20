@@ -23,7 +23,7 @@
 
               <div class="tab-content">
                 <div class="tab-pane active mt20" id="candidate-profile">
-                <?= $this->Form->create($candidat, ['type' => 'file', 'url' => ['Controller' => 'Candidats','action' => 'edit', $candidat->id_candidat]]); ?>
+                <?= $this->Form->create($candidat, ['type' => 'file', 'url' => ['Controller' => 'Candidats','action' => 'edit', $candidat->id]]); ?>
                   <div class="row">
                     <div class="col-md-4">
                       <div class="motijob-sidebar">

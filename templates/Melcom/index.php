@@ -144,7 +144,7 @@
                                 <div>
                                     <ul class="filter-list">
                                         <?php foreach($categories as $cat){ ?>
-                                            <li><a href="<?= $this->Url->build(['controller' => 'Search', 'action' => 'annonceByCategory', $cat->id_categorie])?>"><?= $cat->libelle ?> <span>(<?= count($cat->annonces) ?>)</span></a></li>
+                                            <li><a href="<?= $this->Url->build(['controller' => 'Search', 'action' => 'annonceByCategory', $cat->id])?>"><?= $cat->libelle ?> <span>(<?= count($cat->annonces) ?>)</span></a></li>
                                         <?php } ?>
                                     </ul>
                                     <a href="#" class="toggle"></a>

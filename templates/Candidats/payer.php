@@ -140,7 +140,7 @@
                                 <input type="hidden" name="redirect" value="https://melcom.boostetoncv.com/callback/<?= $candidat->id ?>">
                                 <input class="btn btn-default" type="submit" name="submitButton" value="PAYER"/>
                             </form>
-                            <a href="<?= $this->Url->build(['controller' => 'Candidats', 'action' => 'edit', $candidat->id_candidat]) ?>"><button class="btn btn-black">Modifier</button></a>
+                            <a href="<?= $this->Url->build(['controller' => 'Candidats', 'action' => 'edit', $candidat->id]) ?>"><button class="btn btn-black">Modifier</button></a>
                         </div> <!-- end .save-cancel-button -->
 
                     </div> <!-- end .candidate-description -->

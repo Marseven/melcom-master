@@ -199,7 +199,7 @@
                               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Candidat
                                   <span class="caret"></span></a>
                               <ul class="dropdown-menu">
-                                  <li><a href="<?= $this->Url->build(['controller' => 'Candidats', 'action' => 'annonceByCandidat', $user->candidats[0]->id_candidat]) ?>">Mes Candidatures</a></li>
+                                  <li><a href="<?= $this->Url->build(['controller' => 'Candidats', 'action' => 'annonceByCandidat', $user->candidats[0]->id]) ?>">Mes Candidatures</a></li>
                               </ul>
                           </li>
                       <?php } ?>
@@ -209,8 +209,8 @@
                               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Entreprise
                                   <span class="caret"></span></a>
                               <ul class="dropdown-menu">
-                                  <li><a href="<?= $this->Url->build(['controller' => 'Entreprises', 'action' => 'annonceByEntreprise', $user->entreprises[0]->id_entreprise]) ?>">Les Annonces</a></li>
-                                  <li><a href="<?= $this->Url->build(['controller' => 'Entreprises', 'action' => 'candidatByAnnonce', $user->entreprises[0]->id_entreprise]) ?>">Les Candidats</a></li>
+                                  <li><a href="<?= $this->Url->build(['controller' => 'Entreprises', 'action' => 'annonceByEntreprise', $user->entreprises[0]->id]) ?>">Les Annonces</a></li>
+                                  <li><a href="<?= $this->Url->build(['controller' => 'Entreprises', 'action' => 'candidatByAnnonce', $user->entreprises[0]->id]) ?>">Les Candidats</a></li>
                               </ul>
                           </li>
                       <?php } ?>

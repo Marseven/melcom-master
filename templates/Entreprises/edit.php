@@ -20,7 +20,7 @@
               <div class="table-responsive">
 
             <?= $this->Flash->render() ?>
-              <?= $this->Form->create($entreprise, ['type' => 'file', 'url' => ['Controller' => 'Entreprises','action' => 'edit', $entreprise->id_entreprise], 'class' => 'default-form']); ?>
+              <?= $this->Form->create($entreprise, ['type' => 'file', 'url' => ['Controller' => 'Entreprises','action' => 'edit', $entreprise->id], 'class' => 'default-form']); ?>
                 <div class="form-banner-button  mt50 mb20">
 
                   <div class="css-table">
@@ -187,7 +187,7 @@
                 </div> <!-- end .job-regi-single -->
 
                 <?= $this->Form->control('id_user', array(
-                    'value' => $user->id_user,
+                    'value' => $user->id,
                     'type' => 'hidden',
                 )); ?>
 
