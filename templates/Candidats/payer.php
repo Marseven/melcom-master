@@ -131,7 +131,15 @@
 
 
                         <div class="save-cancel-button ml20">
-                            <a href="<?= $this->Url->build(['controller' => 'Candidats', 'action' => 'payer', '?payer=true']) ?>"><button class="btn btn-default">Payer</button></a>
+                            <form action="https://mypvit.com/pvit-secure-full-api.kk" method="POST" id="payeForm" >
+                                <input type="hidden" name="tel_marchand" value="077695468">
+                                <input type="hidden" name="montant" value="3000">
+                                <input type="hidden" name="ref" value="<?= $reference ?>">
+                                <input type="hidden" name="service" value="WEB">
+                                <input type="hidden" name="operateur" value="MC">
+                                <input type="hidden" name="redirect" value="https://melcom.boostetoncv.com/callback/<?= $candidat->id ?>">
+                                <input class="btn btn-default" type="submit" name="submitButton" value="PAYER"/>
+                            </form>
                             <a href="<?= $this->Url->build(['controller' => 'Candidats', 'action' => 'edit', $candidat->id_candidat]) ?>"><button class="btn btn-black">Modifier</button></a>
                         </div> <!-- end .save-cancel-button -->
 

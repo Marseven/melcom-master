@@ -227,17 +227,42 @@ class CandidatsController extends AppController
         $candidat = $candidatTable->find()->contain('Annonces')->where(['id_candidat' => $candidat])->all();
 
         $candidat = $candidat->first();
+        $reference = AppController::str_random(10);
+        $reference = 'Ref'.$reference;
 
         $this->set(compact('candidat'));
         $this->set('_serialize', ['candidat']);
+        $this->set(compact('reference'));
+        $this->set('_serialize', ['reference']);
 
         $this->menu('postuler');
-
     }
 
-    public function paiementSucces(){
+    public function callback($candidat){
         $candidatTable = TableRegistry::getTableLocator()->get('Candidats');
-        $candidat = $candidatTable->get($this->request->getQuery()['candidat']);
+        $candidat = $candidatTable->get($candidat);
+
+        $data_received = file_get_contents("php://input");
+        $data_received_xml = new SimpleXMLElement($data_received);
+        $ligne_response = $data_received_xml[0];
+        $interface_received = $ligne_response->INTERFACEID;
+        $reference_received = $ligne_response->REF;
+        $type_received = $ligne_response->TYPE;
+        $statut_received = $ligne_response->STATUT;
+        $operateur_received = $ligne_response->OPERATEUR;
+        $client_received = $ligne_response->TEL_CLIENT;
+        $message_received = $ligne_response->MESSAGE;
+        $token_received = $ligne_response->TOKEN;
+        $agent_received = $ligne_response->AGENT;
+
+        $connection = ConnectionManager::get('default');
+        $results = $connection
+        ->execute(
+            'INSERT INTO paiement (interfaceid, ref, type, statut, operateur, tel_client, message, token, agent)
+                VALUES ("'.$interface_received.'","'.$reference_received.'","'.$type_received.'","'.$statut_received.'","'.$operateur_received.'","'.$client_received.'","'.$message_received.'","'.$token_received.'","'.$agent_received.'")
+            '
+        );
+
 
         //envoi d'un email pour informer le client de son code secret
         $mail = new Email();

@@ -66,7 +66,7 @@ class MelcomController extends AppController
 
         $annonceTable = TableRegistry::getTableLocator()->get('Annonces');
 
-        $annonces = $this->Paginator->paginate($annonceTable->find()->contain(['Categories', 'Entreprises'])->where(['ville' => $this->request->getQuery()['ville']]));
+        $annonces = $this->Paginator->paginate($annonceTable->find()->contain(['Categories', 'Entreprises'])->where(['ville' => $this->request->getQuery()['ville'], 'Categories.id' => $this->request->getQuery()['cat'] ]));
 
         $this->set(compact('annonces'));
         $this->set('_serialize', ['annonces']);

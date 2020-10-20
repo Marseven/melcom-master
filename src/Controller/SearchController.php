@@ -28,13 +28,12 @@ class SearchController extends AppController
     {
 
         $annonceTable = TableRegistry::getTableLocator()->get('Annonces');
-        $annonces = $this->Paginator->paginate($annonceTable->find('Search', ['search' => $this->request->getQuery()['q']])->contain(['Categories', 'Entreprises']));
+        $annonces = $this->Paginator->paginate($annonceTable->find('all', ['conditions' => ['titre LIKE' => '%'.$this->request->getQuery()['q'], 'description LIKE' => '%'.$this->request->getQuery()['q']]])
+                                                            ->contain(['Categories', 'Entreprises']));
 
         $entrepriseTable = TableRegistry::getTableLocator()->get('Entreprises');
-        $entreprises = $this->Paginator->paginate($entrepriseTable->find('Search', ['search' => $this->request->getQuery()['q']])->contain(['Annonces']));
-
-        $candidatTable = TableRegistry::getTableLocator()->get('Candidats');
-        $candidats = $this->Paginator->paginate($candidatTable->find('Search', ['search' => $this->request->getQuery()['q']])->contain(['Annonces']));
+        $entreprises = $this->Paginator->paginate($entrepriseTable->find('all', ['conditions' => ['nom LIKE' => '%'.$this->request->getQuery()['q'], 'secteur LIKE' => '%'.$this->request->getQuery()['q']]])
+                                                                  ->contain(['Annonces']));
 
 
         $this->set(compact('annonces'));
@@ -42,9 +41,6 @@ class SearchController extends AppController
 
         $this->set(compact('entreprises'));
         $this->set('_serialize', ['entreprises']);
-
-        $this->set(compact('candidats'));
-        $this->set('_serialize', ['candidats']);
 
         $this->menu('annonces');
         $this->render('index');
