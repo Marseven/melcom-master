@@ -115,12 +115,23 @@ class CandidatsController extends AppController
                 $user->role = 'Candidat';
 
                 if ($usersTable->save($user)) {
-                    $candidat->id = $user->id;
+                    $candidat->id_user = $user->id;
                     if ($candidatTable->save($candidat)) {
                         $this->Flash->success(__('Votre candidat a été enregistré.'));
                         return $this->redirect(['action' => 'payer', $candidat->id]);
                     } else {
                         $this->Flash->error(__('Votre candidat n\'a pas été enregistré. S\'il vous plaît essayez plus tard.'));
+                    }
+                    if ($candidatTable->save($candidat)) {
+                        $annonce_candidat = $annonce_candidatTable->newEntity([]);
+                        $annonce_candidat->candidat_id = $candidat->id;
+                        $annonce_candidat->annonce_id =$this->request->getData()["id_annonce"];
+                        $annonce_candidatTable->save($annonce_candidat);
+
+                        $this->Flash->success(__('Votre candidature a été enregistré. Veuillez compléter la procédure en effectuant le paiment des frais de dossier.'));
+                        return $this->redirect(['action' => 'payer', $candidat->id]);
+                    } else {
+                        $this->Flash->error(__('Le candidat n\'a pas été modifié. S\'il vous plaît essayez plus tard.'));
                     }
                 } else {
                     $this->Flash->error(__('Votre candidat n\'a pas été enregistré et les identifiants de connexion générés. S\'il vous plaît essayez plus tard.'));
@@ -169,21 +180,8 @@ class CandidatsController extends AppController
                 $candidat = $candidatTable->patchEntity($candidat, $data);
 
                 //création du profil de connexion du candidat
-                $mdp = AppController::str_random(6);
                 $user->nom = $candidat->nom;
                 $user->email = $candidat->email;
-                $exist_email = $candidat->find()
-                    ->where(
-                        [
-                            'email' => $candidat->email,
-                        ]
-                    )
-                    ->limit(1)
-                    ->all();
-                if(!$exist_email->isEmpty()){
-                    $this->Flash->error('Cette email existe déjà pour un référent.');
-                    return $this->render('add');
-                }
                 $user->telephone = $candidat->telephone;
                 $user->picture = $candidat->image;
 
