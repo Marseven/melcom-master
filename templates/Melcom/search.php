@@ -34,12 +34,12 @@
 
                     </div>
                   </div>
-                  <div class="white-container mb0">
-                        <div class="widget sidebar-widget jobs-filter-widget">
-                            <div class="widget-content">
-                                <img src="" class="" >
-                                <?= $this->Html->image('pub-v.png', ['fullBase' => true, 'width'=> "360", 'height' => "auto"]) ?>
-                            </div>
+                </div>
+                <div class="white-container mb0">
+                    <div class="widget sidebar-widget jobs-filter-widget">
+                        <div class="widget-content">
+                            <img src="" class="" >
+                            <?= $this->Html->image('pub-v.png', ['fullBase' => true, 'width'=> "360", 'height' => "auto"]) ?>
                         </div>
                     </div>
                 </div>

@@ -54,6 +54,8 @@
                     </div>
                 </div>
 
+                <hr>
+
                 <?= $this->Html->image('pub-h.png', ['fullBase' => true, 'width'=> "750", 'height' => "auto"]) ?>
 
                 <hr>

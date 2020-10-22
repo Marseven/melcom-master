@@ -10,7 +10,7 @@ use Cake\Mailer\Email;
 class ContactForm extends Form
 {
 
-    protected function buildSchema(Schema $schema) : Schema
+    protected function _buildSchema(Schema $schema) : Schema
     {
         return $schema->addField('name', 'string')
             ->addField('email', ['type' => 'string'])
