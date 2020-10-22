@@ -18,7 +18,7 @@ class ContactForm extends Form
             ->addField('body', ['type' => 'text']);
     }
 
-    protected function _buildValidator(Validator $validator) : Validator
+    protected function validationDefault(Validator $validator) : Validator
     {
         return $validator->add('name', 'length', [
             'rule' => ['minLength', 2],
