@@ -1,3 +1,17 @@
+<div class="header-page-title our-agents-header">
+    <div class="index-page-search-content">
+          <div id="owl-demo" class="owl-carousel owl-theme">
+
+            <div class="item"
+              style="background: url('img/home-bg.jpg') center center no-repeat; background-size: cover;"></div>
+            <div class="item"
+              style="background: url('img/home-bg2.jpg') center center no-repeat; background-size: cover;"></div>
+            <div class="item"
+              style="background: url('img/home-bg3.jpg') center center no-repeat; background-size: cover;"></div>
+
+          </div>
+    </div>
+</div> <!-- end .header-nav-bar -->
 <div id="page-content" class="page-content pt60">
     <div class="container">
         <div class="row">
@@ -19,16 +33,14 @@
                                     <div class="hsb-container">
                                         <div class="hsb-input-2">
                                             <select name="ville" class="form-control" required>
-                                                <option value="0">Selectionnez une Ville</option>
-                                                <option value="">Libreville</option>
-                                                <option value="">Port-Gentil</option>
-                                                <option value="">Franceville</option>
-                                                <option value="">Oyem</option>
+                                                <option>Libreville</option>
+                                                <option>Port-Gentil</option>
+                                                <option>Franceville</option>
+                                                <option>Oyem</option>
                                             </select>
                                         </div>
                                         <div class="hsb-select">
                                             <select name="cat" class="form-control" required>
-                                                <option value="0">Selectionnez une catégorie</option>
                                                 <?php foreach($categories as $cat){ ?>
                                                     <option value="<?= $cat->id ?>"><?= $cat->libelle ?></option>
                                                 <?php } ?>
@@ -43,6 +55,8 @@
                         </div>
                     </div>
                 </div>
+
+                <?= $this->Html->image('pub-h.png', ['fullBase' => true, 'width'=> "750", 'height' => "auto"]) ?>
 
                 <hr>
 
@@ -150,6 +164,14 @@
                                     <a href="#" class="toggle"></a>
                                 </div>
 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="white-container mb0">
+                        <div class="widget sidebar-widget jobs-filter-widget">
+                            <div class="widget-content">
+                                <img src="" class="" >
+                                <?= $this->Html->image('pub-v.png', ['fullBase' => true, 'width'=> "360", 'height' => "auto"]) ?>
                             </div>
                         </div>
                     </div>

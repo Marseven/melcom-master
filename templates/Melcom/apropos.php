@@ -36,25 +36,15 @@
 
                                         <div class="client-sidebar-area">
                                             <h5>Specialties</h5>
-                                            <p>manufacturing, sales, marketing, brand
-                                                management, gatorade, tropicana, quaker
-                                                oats, frito-lay, pepsi, mtn dew, doritos,
-                                                mirinda, pepsi max, tostitos, aquafina, sierra
-                                                mist, fritos, lipton, cheetos, 7up
+                                            <p>Mel com est une agence de communication marketing, de placement du personnel et stage, nous faisons a votre place les démarches de recherche d'emploi ou de stage, et vous proposons le meilleur personnel.
                                             </p>
 
-                                            <h5>Industry</h5>
-                                            <p>Food &amp; Beverages</p>
+                                            <h5>Domine</h5>
+                                            <p>Communication, Marketing et Ressources Humaines</p>
 
-                                            <h5>Type</h5>
-                                            <p>Public Company</p>
+                                            <h5>Bureaux</h5>
+                                            <p>318, Rue Luc Marc Ivanga, Montagne-Sainte, Libreville, Gabon</p>
 
-                                            <h5>Headquarters</h5>
-                                            <p>700 Anderson Hill Rod Purchase,
-                                                New York 10577 United States</p>
-
-                                            <h5>Company Size</h5>
-                                            <p>10,001+ employees</p>
                                         </div>
                                         <!-- end .client-sidebar-area -->
 
@@ -64,16 +54,13 @@
 
                                         <div class="client-sidebar-area">
                                             <h5>Website</h5>
-                                            <p>http://www.pepsico.com</p>
+                                            <p>https://www.melcomga.com</p>
 
-                                            <h5>Telephone</h5>
-                                            <p>+63 943 524 2108</p>
-
-                                            <h5>Contact Person</h5>
-                                            <p>Andy Wilkerson</p>
+                                            <h5>Téléphone</h5>
+                                            <p>+241 74 36 63 11</p>
 
                                             <h5>Email</h5>
-                                            <p>inquiry@pepsico.com</p>
+                                            <p>melcomservices@gmail.com</p>
                                         </div>
                                         <!-- end .client-sidebar-area -->
 
@@ -96,14 +83,8 @@
                                             <h5>A Propos de Melcom</h5>
                                         </div>
 
-
-                                        <p>PepsiCo is a global food and beverage leader with net revenues of more than $65 billion and a product portfolio that includes 22 brands that generate more than $1 billion each in annual retail sales. Our main businesses – Quaker, Tropicana, Gatorade, Frito-Lay and Pepsi-Cola – make hundreds of enjoyable foods and beverages that are loved throughout the world. PepsiCo's people are united by our unique commitment to sustainable growth by investing in a healthier future for people and our planet, which we believe also means a more successful future for PepsiCo. We call this commitment Performance with Purpose: PepsiCo's promise to provide a wide range of foods and beverages from treats to healthy eats; to find innovative ways to minimize our impact on the environment by conserving energy and water and reducing packaging volume; to provide a great workplace for our associates; and to respect, support and invest in the local communities where we operate.
-
-                                        </p>
-
-                                        <p>
-                                            n recognition of its continued sustainability efforts, PepsiCo was named for the sixth time to the Dow Jones Sustainability World Index (DJSI World) and for the seventh time to the Dow Jones Sustainability North America Index (DJSI North America) in 20012.
-                                        </p>
+                                        <p>Mel com est une agence de communication marketing, de placement du personnel et stage, nous faisons a votre place les démarches de recherche d'emploi ou de stage, et vous proposons le meilleur personnel.
+                                            </p>
 
                                     </div> <!-- end .candidate-details -->
 

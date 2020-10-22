@@ -30,12 +30,12 @@
                     <address>
                       328 Rue Luc Marc Ivaga, Libreville <br>
                       Gabon <br>
-                     Melcom
+                     Mel Com
                     </address>
 
                     <p>
-                      Téléphone : <a href="tel:+11234567890">+241 123-456-7890</a> <br>
-                      Email : <a href="mailto:email@example.com">email@example.com</a>
+                      Téléphone : <a href="tel:+11234567890">+241 74 36 63 11</a> <br>
+                      Email : <a href="mailto:melcomservices@gmail.com">melcomservices@gmail.com</a>
                     </p>
                   </div>
                 </div>

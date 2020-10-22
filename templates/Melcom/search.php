@@ -96,7 +96,7 @@
 
                     <div class="apply-share clearfix">
                       <ul class="list-inline pull-left job-preview-social-link ">
-                        <li class="share">Share:</li>
+                        <li class="share">PTGR:</li>
                         <li class="facebook-color"><a href="#"><i class="fa fa-facebook"></i></a></li>
                         <li class="twitt-color"><a href="#"><i class="fa fa-twitter"></i></a></li>
                       </ul>
@@ -115,8 +115,6 @@
               </div> <!-- end .candidate-description -->
 
             <?php } ?>
-
-
 
             </div> <!-- end .page-content -->
           </div>
