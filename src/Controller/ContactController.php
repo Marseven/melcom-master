@@ -18,6 +18,7 @@ class ContactController extends AppController
     public function index()
     {
         $contact = new ContactForm();
+
         if ($this->request->is('post')) {
             if ($contact->execute($this->request->getData())) {
                 $this->Flash->success('Merci, Nous reviendrons vers vous rapidement.');
