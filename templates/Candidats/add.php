@@ -124,7 +124,7 @@
 
                       <div class="job-reg-form">
                         <div style="padding: 0 20px 0 20px;">
-                            <h2>[IMPORTANT]</h2>
+                            <h2><strong>[IMPORTANT]</strong></h2>
                             <p>
                                 Le dépôt d’un dossier de candidature à un poste publié par la structure MEL Com est automatiquement actionné par un coaching prévu avant l’entretient (lorsque le postulant est retenue), le postulant reçoit un coaching sur en rapport avec la structure partenaire.
                                 En cas d’embauche, l’ex postulant à le devoir de fournir une photo de lui à son poste de travail a Mel Com pour l’archivage numérique (Facebook).

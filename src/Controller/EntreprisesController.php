@@ -88,7 +88,21 @@ class EntreprisesController extends AppController
 
                 if ($usersTable->save($user)) {
                     if ($this->Entreprises->save($entreprise)) {
-                        $this->Flash->success(__('L\'entreprise a été enregistré. Les éléments de connexion sont : '.$user->email.' et '.$mdp));
+
+                        $mail = new Email();
+                        $mail->setFrom('support@melcom.com')
+                            ->setTo($user->email)
+                            ->setSubject('[Mel Com] Bienvenu sur Mel Com !')
+                            ->setEmailFormat('html')
+                            ->setViewVars(array(
+                                'nom' => $user->nom,
+                                'mdp' => $mdp,
+                            ))
+                            ->viewBuilder()
+                            ->setTemplate('new_entreprise');
+                        $mail->send();
+
+                        $this->Flash->success(__('L\'entreprise a été enregistré. Le mail de confirmation a été envoyé référent.'));
                         return $this->redirect(['action' => 'index']);
                     } else {
                         $this->Flash->error(__('L\'entreprise n\'a pas été enregistré. S\'il vous plaît essayez plus tard.'));

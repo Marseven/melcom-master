@@ -94,6 +94,9 @@
                                     </div> <!-- end .clients-job-single -->
                                 <?php } ?>
 
+                                <?php if(count($candidats) == 0){ ?>
+                                    <h3 style="text-align: center;">Aucune candidat pour le moment !</h3>
+                                <?php } ?>
 
                             </div> <!-- end .assigned-job-list -->
 

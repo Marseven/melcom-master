@@ -2,7 +2,7 @@
     <div class="title-overlay"></div>
     <div class="container">
         <div class="title-breadcrumb clearfix">
-            <h1>Les candidats</h1>
+            <h1>Mes Candidatures</h1>
 
             <ol class="breadcrumb">
                 <li><a href="<?= $this->Url->build(['controller' => 'Melcom', 'action' => 'index']) ?>">Accueil</a></li>
@@ -23,23 +23,32 @@
                             <h5 class="widget-title">Recheche</h5>
 
                             <div class="widget-content">
-                                <span class="search-tex">I'm looking for a ...</span>
+                                <span class="search-tex">Je cherche ...</span>
+                                <form action="<?= $this->Url->build(['controller' => 'Melcom', 'action' => 'search']) ?>" method="GET">
+                                    <input type="text" required name="q" class="form-control mt10" placeholder="Mot Clé">
+                                    <select name="cat" required class="form-control mt10 mb10">
+                                        <?php foreach($categories as $cat){ ?>
+                                            <option value="<?= $cat->id ?>"><?= $cat->libelle ?></option>
+                                        <?php } ?>
+                                    </select>
+                                    <span class="search-tex">à</span>
+                                    <select name="ville" required class="form-control mt10 mb10">
+                                        <option>Libreville</option>
+                                        <option>Port-Gentil</option>
+                                        <option>Franceville</option>
+                                        <option>Oyem</option>
+                                    </select>
+                                    <input type="submit" class="btn btn-default" value="Rechercher">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
 
-                                <select class="form-control mt10 mb10">
-                                    <option value="0">Job</option>
-                                    <option value="">Category</option>
-                                    <option value="">Category</option>
-                                    <option value="">Category</option>
-                                    <option value="">Category</option>
-                                </select>
-
-                                <span class="search-tex">in</span>
-
-                                <input type="text" class="form-control mt10" placeholder="Location">
-
-                                <input type="text" class="form-control mt15 mb15" placeholder="Industry / Role">
-
-                                <input type="submit" class="btn btn-default" value="Search">
+                    <div class="white-container mb0">
+                        <div class="widget sidebar-widget jobs-filter-widget">
+                            <div class="widget-content">
+                                <img src="" class="" >
+                                <?= $this->Html->image('pub-v.png', ['fullBase' => true, 'width'=> "360", 'height' => "auto"]) ?>
                             </div>
                         </div>
                     </div>
@@ -105,7 +114,7 @@
 
                                     <div class="apply-share clearfix">
                                         <ul class="list-inline pull-left job-preview-social-link ">
-                                            <li class="share">Share:</li>
+                                            <li class="share">PTGR:</li>
                                             <li class="facebook-color"><a href="#"><i class="fa fa-facebook"></i></a></li>
                                             <li class="twitt-color"><a href="#"><i class="fa fa-twitter"></i></a></li>
                                         </ul>
@@ -123,6 +132,10 @@
 
                         </div> <!-- end .candidate-description -->
                     <?php } ?>
+                <?php } ?>
+
+                <?php if(count($candidats) == 0){ ?>
+                    <h3 style="text-align: center;">Aucune candidature pour le moment !</h3>
                 <?php } ?>
 
                 <div class="pagination-content clearfix">

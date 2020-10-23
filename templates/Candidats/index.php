@@ -18,11 +18,40 @@
           <div class="row">
             <div class="col-sm-4 page-sidebar">
               <aside>
-                <div class="white-container mb0">
-                  <div class="widget sidebar-widget jobs-search-widget">
-                    <h5 class="widget-title">Recheche</h5>
-                  </div>
-                </div>
+              <div class="white-container mb0">
+                        <div class="widget sidebar-widget jobs-search-widget">
+                            <h5 class="widget-title">Recheche</h5>
+
+                            <div class="widget-content">
+                                <span class="search-tex">Je cherche ...</span>
+                                <form action="<?= $this->Url->build(['controller' => 'Melcom', 'action' => 'search']) ?>" method="GET">
+                                    <input type="text" required name="q" class="form-control mt10" placeholder="Mot Clé">
+                                    <select name="cat" required class="form-control mt10 mb10">
+                                        <?php foreach($categories as $cat){ ?>
+                                            <option value="<?= $cat->id ?>"><?= $cat->libelle ?></option>
+                                        <?php } ?>
+                                    </select>
+                                    <span class="search-tex">à</span>
+                                    <select name="ville" required class="form-control mt10 mb10">
+                                        <option>Libreville</option>
+                                        <option>Port-Gentil</option>
+                                        <option>Franceville</option>
+                                        <option>Oyem</option>
+                                    </select>
+                                    <input type="submit" class="btn btn-default" value="Rechercher">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="white-container mb0">
+                        <div class="widget sidebar-widget jobs-filter-widget">
+                            <div class="widget-content">
+                                <img src="" class="" >
+                                <?= $this->Html->image('pub-v.png', ['fullBase' => true, 'width'=> "360", 'height' => "auto"]) ?>
+                            </div>
+                        </div>
+                    </div>
               </aside>
             </div> <!-- end .page-sidebar -->
 
@@ -117,6 +146,10 @@
                 </div> <!-- end .candidate-details -->
 
               </div> <!-- end .candidate-description -->
+            <?php } ?>
+
+            <?php if(count($candidats) == 0){ ?>
+                <h3 style="text-align: center;">Aucun candidat pour le moment !</h3>
             <?php } ?>
 
               <div class="pagination-content clearfix">

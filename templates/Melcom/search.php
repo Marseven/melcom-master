@@ -124,7 +124,7 @@
 
             <?php } ?>
             <?php if(count($annonces) == 0){ ?>
-                    <p>Aucun Résultats pour le moment !</p>
+                    <h3 style="text-align: center;">Aucun Résultats pour le moment !</h3>
             <?php } ?>
 
 

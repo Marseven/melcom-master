@@ -93,7 +93,7 @@ class CandidatsController extends AppController
                 $candidat = $candidatTable->patchEntity($candidat, $data);
 
                 //création du profil de connexion du candidat
-                $mdp = AppController::str_random(6);
+                $mdp = AppController::str_random(8);
                 $user->nom = $candidat->nom;
                 $user->email = $candidat->email;
                 $exist_email = $usersTable->find()
@@ -117,21 +117,28 @@ class CandidatsController extends AppController
                 if ($usersTable->save($user)) {
                     $candidat->id_user = $user->id;
                     if ($candidatTable->save($candidat)) {
-                        $this->Flash->success(__('Votre candidat a été enregistré.'));
-                        return $this->redirect(['action' => 'payer', $candidat->id]);
-                    } else {
-                        $this->Flash->error(__('Votre candidat n\'a pas été enregistré. S\'il vous plaît essayez plus tard.'));
-                    }
-                    if ($candidatTable->save($candidat)) {
                         $annonce_candidat = $annonce_candidatTable->newEntity([]);
                         $annonce_candidat->candidat_id = $candidat->id;
                         $annonce_candidat->annonce_id =$this->request->getData()["id_annonce"];
                         $annonce_candidatTable->save($annonce_candidat);
 
+                        $mail = new Email();
+                        $mail->setFrom('support@melcom.com')
+                            ->setTo($user->email)
+                            ->setSubject('[Mel Com] Bienvenu sur Mel Com !')
+                            ->setEmailFormat('html')
+                            ->setViewVars(array(
+                                'nom' => $user->nom,
+                                'mdp' => $mdp,
+                            ))
+                            ->viewBuilder()
+                            ->setTemplate('new_user');
+                        $mail->send();
+
                         $this->Flash->success(__('Votre candidature a été enregistré. Veuillez compléter la procédure en effectuant le paiment des frais de dossier.'));
                         return $this->redirect(['action' => 'payer', $candidat->id]);
                     } else {
-                        $this->Flash->error(__('Le candidat n\'a pas été modifié. S\'il vous plaît essayez plus tard.'));
+                        $this->Flash->error(__('Votre candidat n\'a pas été enregistré. S\'il vous plaît essayez plus tard.'));
                     }
                 } else {
                     $this->Flash->error(__('Votre candidat n\'a pas été enregistré et les identifiants de connexion générés. S\'il vous plaît essayez plus tard.'));

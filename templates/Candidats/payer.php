@@ -119,29 +119,18 @@
                             </ul>
                         </div> <!-- end .addintional-skills -->
 
-                        <div class="apply-share clearfix">
-
-                            <ul class="list-inline pull-left job-preview-social-link">
-                                <li class="share">Share:</li>
-                                <li class="facebook-color"><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li class="twitt-color"><a href="#"><i class="fa fa-twitter"></i></a></li>
-                            </ul>
-                        </div>
-                        <!-- end .apply-share -->
-
-
-                        <div class="save-cancel-button ml20">
-                            <form action="https://mypvit.com/pvit-secure-full-api.kk" method="POST" id="payeForm" >
-                                <input type="hidden" name="tel_marchand" value="077695468">
-                                <input type="hidden" name="montant" value="3000">
-                                <input type="hidden" name="ref" value="<?= $reference ?>">
-                                <input type="hidden" name="service" value="WEB">
-                                <input type="hidden" name="operateur" value="MC">
-                                <input type="hidden" name="redirect" value="https://melcom.boostetoncv.com/callback/<?= $candidat->id ?>">
+                        <form action="https://mypvit.com/pvit-secure-full-api.kk" method="POST" id="payeForm" >
+                            <input type="hidden" name="tel_marchand" value="077695468">
+                            <input type="hidden" name="montant" value="3000">
+                            <input type="hidden" name="ref" value="<?= $reference ?>">
+                            <input type="hidden" name="service" value="WEB">
+                            <input type="hidden" name="operateur" value="MC">
+                            <input type="hidden" name="redirect" value="https://melcom.boostetoncv.com/callback/<?= $candidat->id ?>">
+                            <div class="save-cancel-button ml20">
                                 <input class="btn btn-default" type="submit" name="submitButton" value="PAYER"/>
-                            </form>
-                            <a href="<?= $this->Url->build(['controller' => 'Candidats', 'action' => 'edit', $candidat->id]) ?>"><button class="btn btn-black">Modifier</button></a>
-                        </div> <!-- end .save-cancel-button -->
+                                <a href="<?= $this->Url->build(['controller' => 'Candidats', 'action' => 'edit', $candidat->id]) ?>"><button class="btn btn-black">Modifier</button></a>
+                            </div> <!-- end .save-cancel-button -->
+                        </form>
 
                     </div> <!-- end .candidate-description -->
                 </div> <!-- end 9th grid layout -->
