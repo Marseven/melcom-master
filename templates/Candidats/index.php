@@ -6,7 +6,7 @@
 
             <ol class="breadcrumb">
                 <li><a href="<?= $this->Url->build(['controller' => 'Melcom', 'action' => 'index']) ?>">Accueil</a></li>
-                <li class="active">Les candidtas</li>
+                <li class="active">Les candidats</li>
             </ol>
         </div> <!-- end .title-breadcrumb -->
 
