@@ -26,6 +26,7 @@
                                 <span class="search-tex">Je cherche ...</span>
                                 <form action="<?= $this->Url->build(['controller' => 'Melcom', 'action' => 'search']) ?>" method="GET">
                                     <input type="text" required name="q" class="form-control mt10" placeholder="Mot Clé">
+                                    <br>
                                     <select name="cat" required class="form-control mt10 mb10">
                                         <?php foreach($categories as $cat){ ?>
                                             <option value="<?= $cat->id ?>"><?= $cat->libelle ?></option>
@@ -38,6 +39,7 @@
                                         <option>Franceville</option>
                                         <option>Oyem</option>
                                     </select>
+                                    <br>
                                     <input type="submit" class="btn btn-default" value="Rechercher">
                                 </form>
                             </div>

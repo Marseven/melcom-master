@@ -61,7 +61,7 @@
                                             <div class="table-details css-table-cell">
 
                                                 <div class="company-name">
-                                                    <h4><a href="#"><?= $candidat->nom ?></a></h4>
+                                                    <h4><a href="<?= $this->Url->build(['controller' => 'Candidats', 'action' => 'view', $candidat->id]) ?>"><?= $candidat->nom ?></a></h4>
                                                 </div> <!-- end .company-name -->
 
                                                 <div class="company-description">
@@ -87,7 +87,7 @@
 
                                             <div class="clients-job css-table-cell">
                                                 <a href="<?= $this->Url->build(['controller' => 'Candidats', 'action' => 'edit', $candidat->id]) ?>" class="btn btn-default">Modifier</a><br><br>
-                                                <a href="<?= $this->Url->build(['controller' => 'Candidats', 'action' => 'delete', $candidat->id]) ?>" onclick="Êtes-vous sûr de vouloir supprimer cette catégorie ?" class="btn btn-black">Supprimer</a>
+                                                <a href="<?= $this->Url->build(['controller' => 'Candidats', 'action' => 'delete', $candidat->id]) ?>" onclick="return confirm('Êtes-vous sûr de voulir supprimer cette candidature');" class="btn btn-black">Supprimer</a>
                                             </div> <!-- end .days-left -->
 
                                         </div> <!-- end .css-table -->
@@ -95,7 +95,7 @@
                                 <?php } ?>
 
                                 <?php if(count($candidats) == 0){ ?>
-                                    <h3 style="text-align: center;">Aucune candidat pour le moment !</h3>
+                                    <h3 style="text-align: center;">Aucune candidature pour le moment !</h3>
                                 <?php } ?>
 
                             </div> <!-- end .assigned-job-list -->

@@ -43,6 +43,12 @@ class CandidatsController extends AppController
         $this->set(compact('candidats'));
         $this->set('_serialize', ['candidats']);
 
+        $categorieTable = TableRegistry::getTableLocator()->get('Categories');
+        $categories = $categorieTable->find()->contain(['Annonces'])->all();
+
+        $this->set(compact('categories'));
+        $this->set('_serialize', ['categories']);
+
         $this->menu('postuler');
     }
 
