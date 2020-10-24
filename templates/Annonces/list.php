@@ -62,7 +62,7 @@
                                             <div class="table-details css-table-cell">
 
                                                 <div class="company-name">
-                                                    <h4><a href="#"><?= $annonce->titre ?></a></h4>
+                                                    <h4><a href="<?= $this->Url->build(['controller' => 'Annonces', 'action' => 'view', $annonce->id]) ?>"><?= $annonce->titre ?></a></h4>
                                                 </div> <!-- end .company-name -->
 
                                                 <div class="company-description">
@@ -82,7 +82,7 @@
 
                                             <div class="clients-job css-table-cell">
                                                 <a href="<?= $this->Url->build(['controller' => 'Annonces', 'action' => 'edit', $annonce->id]) ?>" class="btn btn-default">Modifier</a><br><br>
-                                                <a href="<?= $this->Url->build(['controller' => 'Annonces', 'action' => 'delete', $annonce->id]) ?>" onclick="Êtes-vous sûr de vouloir supprimer cette catégorie ?" class="btn btn-black">Supprimer</a>
+                                                <a href="<?= $this->Url->build(['controller' => 'Annonces', 'action' => 'delete', $annonce->id]) ?>" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette annonce ?')" class="btn btn-black">Supprimer</a>
                                             </div> <!-- end .days-left -->
 
                                         </div> <!-- end .css-table -->

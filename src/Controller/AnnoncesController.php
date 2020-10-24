@@ -64,7 +64,7 @@ class AnnoncesController extends AppController
     public function view($id = null)
     {
         $annonce = $this->Annonces->get($id, [
-            'contain' => ['categories']
+            'contain' => ['Categories']
         ]);
 
         $this->set(compact('contact'));
