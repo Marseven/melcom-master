@@ -229,7 +229,7 @@ class CandidatsController extends AppController
     public function payer($candidat){
 
         $candidatTable = TableRegistry::getTableLocator()->get('Candidats');
-        $candidat = $candidatTable->find()->contain('Annonces')->where(['id' => $candidat, 'payer' => NULL])->all();
+        $candidat = $candidatTable->find()->contain('Annonces')->where(['id' => $candidat, 'payer' => null])->all();
 
         $candidat = $candidat->first();
 
