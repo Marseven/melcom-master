@@ -57,7 +57,7 @@
 
                     <div class="candidate-description client-description applicants-content">
 
-                        <div class="language-print client-des clearfix">
+                        <div style="padding-left:0px;" class="language-print client-des clearfix">
                             <div class="clearfix">
                                 <div class="pull-left">
                                     <h5><?= $candidat->nom ?></h5>
