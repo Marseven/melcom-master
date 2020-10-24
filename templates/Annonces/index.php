@@ -35,6 +35,15 @@
                     </div>
                   </div>
                 </div>
+
+                <div class="white-container mb0">
+                        <div class="widget sidebar-widget jobs-filter-widget">
+                            <div class="widget-content">
+                                <img src="" class="" >
+                                <?= $this->Html->image('pub-v.png', ['fullBase' => true, 'width'=> "360", 'height' => "auto"]) ?>
+                            </div>
+                        </div>
+                    </div>
               </aside>
             </div> <!-- end .page-sidebar -->
 
@@ -45,13 +54,13 @@
 
                 <div class="language-print client-des clearfix">
                   <div class="aplicants-pic pull-left">
-                    <img src="img/entreprise/<?= $annonce->entreprise->image ?>" alt="">
+                    <img src="img/annonce/<?= $annonce->image ?>" alt="">
                   </div>
                   <!-- end .aplicants-pic -->
                   <div class="clearfix">
                     <div class="pull-left">
                       <h5><?= $annonce->titre ?></h5>
-                      <a href="#"><?= $annonce->categories[0]->libelle ?> | <?= $annonce->entreprise->nom ?></a>
+                      <a href="#"><?= $annonce->categories[0]->libelle ?></a>
                     </div>
                   </div>
 
@@ -87,7 +96,7 @@
 
                     <div class="apply-share clearfix">
                       <ul class="list-inline pull-left job-preview-social-link ">
-                        <li class="share">Share:</li>
+                        <li class="share">PTGR:</li>
                         <li class="facebook-color"><a href="#"><i class="fa fa-facebook"></i></a></li>
                         <li class="twitt-color"><a href="#"><i class="fa fa-twitter"></i></a></li>
                       </ul>
