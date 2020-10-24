@@ -21,7 +21,7 @@
               <div class="col-md-4">
                 <div class="motijob-sidebar">
                 <div class="candidate-profile-picture">
-                  <img src="img/content/job-preview.jpg" alt="">
+                  <?= $this->Html->image('annonce/'.$annonce->image, ['fullBase' => true]) ?>
 
                   <a href="#" class="job-name"><?= $annonce->titre ?></a>
                 </div> <!-- end .agent-profile-picture -->
