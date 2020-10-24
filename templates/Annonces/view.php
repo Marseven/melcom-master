@@ -22,7 +22,7 @@
                 <div class="motijob-sidebar">
                 <div class="candidate-profile-picture">
                   <?= $this->Html->image('annonce/'.$annonce->image, ['fullBase' => true]) ?>
-
+                    <hr>
                   <a href="#" class="job-name"><?= $annonce->titre ?></a>
                 </div> <!-- end .agent-profile-picture -->
 
