@@ -69,7 +69,7 @@
                   <!-- end .aplicants-pic -->
                   <div class="clearfix">
                     <div class="pull-left">
-                      <a href="<?= $this->Url->build(['controller' => 'Candidats', 'action' => 'view', $candidat->id]) ?>"><h5><?= $candidat->nom ?></h5></a>
+                      <a style="color: black;" href="<?= $this->Url->build(['controller' => 'Candidats', 'action' => 'view', $candidat->id]) ?>"><h5><?= $candidat->nom ?></h5></a>
                       <a> <i class="fa fa-map-marker"></i> <?= $candidat->adresse ?></a>
                     </div>
 
