@@ -152,7 +152,7 @@ class UsersController extends AppController {
         if(is_array($user)){
             $user = $usersTable->get($user['id']);
         }
-        $this->Flash->success('À Bientôt '.$user->nom);
+        $this->Flash->success('À Bientôt !');
         return $this->redirect($this->Auth->logout());
     }
 
