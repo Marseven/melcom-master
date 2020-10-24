@@ -102,7 +102,7 @@
 
                           <div class="clients-job css-table-cell">
                                 <a href="<?= $this->Url->build(['controller' => 'Categories', 'action' => 'index', $categorie->id]) ?>" class="btn btn-default">Modifier</a><br><br>
-                                <a href="<?= $this->Url->build(['controller' => 'Categories', 'action' => 'delete', $categorie->id]) ?>" onclick="Êtes-vous sûr de vouloir supprimer cette catégorie ?" class="btn btn-black">Supprimer</a>
+                                <a href="<?= $this->Url->build(['controller' => 'Categories', 'action' => 'delete', $categorie->id]) ?>" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette catégorie ?')" class="btn btn-black">Supprimer</a>
                           </div> <!-- end .days-left -->
 
                         </div> <!-- end .css-table -->
