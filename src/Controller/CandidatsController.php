@@ -306,7 +306,14 @@ class CandidatsController extends AppController
 
     }
 
-    public function view(){
+    public function view($candidat){
+
+        $candidatTable = TableRegistry::getTableLocator()->get('Candidats');
+        $candidat = $candidatTable->get($id);
+
+        $this->set('candidat', $candidat);
+        $this->set('_serialize', ['candidat']);
+
         $this->menu('postuler');
     }
 }
