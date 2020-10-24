@@ -24,7 +24,7 @@ class CandidatsController extends AppController
 
         $this->loadComponent('Paginator');
 
-        $this->Auth->allow(['index', 'add', 'view', 'payer']);
+        $this->Auth->allow(['index', 'add', 'view', 'payer', 'callback']);
         $user = $this->Auth->user();
 
         if($user != null){
@@ -229,16 +229,22 @@ class CandidatsController extends AppController
     public function payer($candidat){
 
         $candidatTable = TableRegistry::getTableLocator()->get('Candidats');
-        $candidat = $candidatTable->find()->contain('Annonces')->where(['id' => $candidat])->all();
+        $candidat = $candidatTable->find()->contain('Annonces')->where(['id' => $candidat, 'payer' => 1])->all();
 
         $candidat = $candidat->first();
-        $reference = AppController::str_random(10);
-        $reference = 'Ref'.$reference;
 
-        $this->set(compact('candidat'));
-        $this->set('_serialize', ['candidat']);
-        $this->set(compact('reference'));
-        $this->set('_serialize', ['reference']);
+        if($candidat){
+            $reference = AppController::str_random(10);
+            $reference = 'Ref'.$reference;
+
+            $this->set(compact('candidat'));
+            $this->set('_serialize', ['candidat']);
+            $this->set(compact('reference'));
+            $this->set('_serialize', ['reference']);
+        }else{
+            $this->Flash->success('Cette candidature est déjà en cours de traitement.');
+            $this->redirect(['controller' => 'Melcom','action' => 'index']);
+        }
 
         $this->menu('postuler');
     }
@@ -281,9 +287,16 @@ class CandidatsController extends AppController
                     'last_name' => $candidat->nom,
                 ))
                 ->send();
-            $this->Flash->success('candidature enregistrée, Nous reviendrons vers vous rapidement');
+
+            $candidat->payer = 1;
+            $candidatTable->save($candidat);
+
+            $this->Flash->success('candidature enregistrée et en cours de traitement, Nous reviendrons vers vous rapidement');
             $this->redirect(['controller' => 'Melcom','action' => 'index']);
 
+        }else{
+            $this->Flash->error($message_received);
+            $this->redirect(['controller' => 'Candidats','action' => 'payer', $candidat->id]);
         }
 
     }
