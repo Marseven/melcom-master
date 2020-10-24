@@ -1,3 +1,18 @@
+<div class="header-page-title our-agents-header">
+    <div class="title-overlay"></div>
+    <div class="container">
+        <div class="title-breadcrumb clearfix">
+            <h1><?= $candidat->nom ?></h1>
+
+            <ol class="breadcrumb">
+                <li><a href="<?= $this->Url->build(['controller' => 'Melcom', 'action' => 'index']) ?>">Accueil</a></li>
+                <li class="active">La candidature</li>
+            </ol>
+        </div> <!-- end .title-breadcrumb -->
+
+    </div> <!-- end .container -->
+</div> <!-- end .header-nav-bar -->
+
 <div id="page-content" class="agent-profile">
     <div class="container">
         <div class="page-content mt60">

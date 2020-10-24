@@ -124,7 +124,7 @@
                             <input type="hidden" name="montant" value="3000">
                             <input type="hidden" name="ref" value="<?= $reference ?>">
                             <input type="hidden" name="service" value="WEB">
-                            <input type="hidden" name="operateur" value="MC">
+                            <input type="hidden" name="operateur" value="AM">
                             <input type="hidden" name="redirect" value="https://melcom.boostetoncv.com/callback/<?= $candidat->id ?>">
                             <div class="save-cancel-button ml20">
                                 <input class="btn btn-default" type="submit" name="submitButton" value="PAYER"/>
