@@ -11,8 +11,7 @@ use Cake\Http\Response;
 use Cake\Mailer\Email;
 use Cake\View\Exception\MissingTemplateException;
 use Cake\ORM\TableRegistry;
-
-
+use SimpleXMLElement;
 
 class CandidatsController extends AppController
 {
