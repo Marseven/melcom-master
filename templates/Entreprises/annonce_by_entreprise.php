@@ -86,6 +86,10 @@
 
             <?php } ?>
 
+            <?php if(count($annonces) == 0){ ?>
+                <h3 style="text-align: center;">Aucune candidature pour le moment !</h3>
+            <?php } ?>
+
               <div class="pagination-content clearfix">
                 <p><?= $this->Paginator->counter() ?></p>
 
