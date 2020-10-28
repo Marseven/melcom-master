@@ -212,7 +212,7 @@ class EntreprisesController extends AppController
         $annonces = $this->Paginator->paginate($query);
 
         $entrepriseTable = TableRegistry::getTableLocator()->get('Entreprises');
-        $entreprise = $entrepriseTable->get($id);
+        $entreprise = $entrepriseTable->get($entreprise);
         $this->set(compact('entreprise'));
         $this->set('_serialize', ['entreprise']);
 
@@ -227,7 +227,7 @@ class EntreprisesController extends AppController
         $query = $annonceTable->find()->contain(['Candidats'])->where(['id_entreprise' => $entreprise]);
         $candidats = $this->Paginator->paginate($query);
         $entrepriseTable = TableRegistry::getTableLocator()->get('Entreprises');
-        $entreprise = $entrepriseTable->get($id);
+        $entreprise = $entrepriseTable->get($entreprise);
         $this->set(compact('entreprise'));
         $this->set('_serialize', ['entreprise']);
         $this->set(compact('candidats'));
