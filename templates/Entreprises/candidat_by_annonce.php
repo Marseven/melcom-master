@@ -2,7 +2,7 @@
     <div class="title-overlay"></div>
     <div class="container">
         <div class="title-breadcrumb clearfix">
-            <h1>Les candidats</h1>
+            <h1><?= $entreprise->nom ?></h1>
 
             <ol class="breadcrumb">
                 <li><a href="<?= $this->Url->build(['controller' => 'Melcom', 'action' => 'index']) ?>">Accueil</a></li>
@@ -17,33 +17,44 @@
         <div class="container">
           <div class="row">
             <div class="col-sm-4 page-sidebar">
-              <aside>
-                <div class="white-container mb0">
-                  <div class="widget sidebar-widget jobs-search-widget">
-                    <h5 class="widget-title">Recheche</h5>
+                <aside>
+                    <div class="white-container mb0">
+                        <div class="widget sidebar-widget jobs-search-widget">
+                            <h5 class="widget-title">Recheche</h5>
 
-                    <div class="widget-content">
-                      <span class="search-tex">I'm looking for a ...</span>
-
-                      <select class="form-control mt10 mb10">
-                        <option value="0">Job</option>
-                        <option value="">Category</option>
-                        <option value="">Category</option>
-                        <option value="">Category</option>
-                        <option value="">Category</option>
-                      </select>
-
-                      <span class="search-tex">in</span>
-
-                      <input type="text" class="form-control mt10" placeholder="Location">
-
-                      <input type="text" class="form-control mt15 mb15" placeholder="Industry / Role">
-
-                      <input type="submit" class="btn btn-default" value="Search">
+                            <div class="widget-content">
+                                <span class="search-tex">Je cherche ...</span>
+                                <form action="<?= $this->Url->build(['controller' => 'Melcom', 'action' => 'search']) ?>" method="GET">
+                                    <input type="text" required name="q" class="form-control mt10" placeholder="Mot Clé">
+                                    <br>
+                                    <select name="cat" required class="form-control mt10 mb10">
+                                        <?php foreach($categories as $cat){ ?>
+                                            <option value="<?= $cat->id ?>"><?= $cat->libelle ?></option>
+                                        <?php } ?>
+                                    </select>
+                                    <span class="search-tex">à</span>
+                                    <select name="ville" required class="form-control mt10 mb10">
+                                        <option>Libreville</option>
+                                        <option>Port-Gentil</option>
+                                        <option>Franceville</option>
+                                        <option>Oyem</option>
+                                    </select>
+                                    <br>
+                                    <input type="submit" class="btn btn-default" value="Rechercher">
+                                </form>
+                            </div>
+                        </div>
                     </div>
-                  </div>
-                </div>
-              </aside>
+
+                    <div class="white-container mb0">
+                        <div class="widget sidebar-widget jobs-filter-widget">
+                            <div class="widget-content">
+                                <img src="" class="" >
+                                <?= $this->Html->image('pub-v.png', ['fullBase' => true, 'width'=> "360", 'height' => "auto"]) ?>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
             </div> <!-- end .page-sidebar -->
 
             <div class="col-sm-8 page-content">
@@ -59,7 +70,7 @@
               </div> <!-- end .view-sort div -->
 
             <?php foreach($candidats as $cdt){ ?>
-                <?php foreach($cdt->Candidats as $candidat){ ?>
+                <?php foreach($cdt->candidats as $candidat){ ?>
               <div class="candidate-description client-description applicants-content">
 
                 <div class="language-print client-des clearfix">

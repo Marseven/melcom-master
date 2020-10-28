@@ -2,7 +2,7 @@
     <div class="title-overlay"></div>
     <div class="container">
         <div class="title-breadcrumb clearfix">
-            <h1>Les annonces</h1>
+            <h1><?= $entreprise->nom ?></h1>
 
             <ol class="breadcrumb">
                 <li><a href="<?= $this->Url->build(['controller' => 'Melcom', 'action' => 'index']) ?>">Accueil</a></li>
