@@ -1,14 +1,10 @@
 <div id="page-content" class="page-content pt60">
     <div class="container">
         <div class="row" style="margin-top: -40px;">
-            <div class="col-lg-12">
-            <div class="header-page-title our-agents-header" style="background-image: url('img/home-bg3.png');">
-                <div class="title-overlay"></div>
-                <div class="container">
-                    <div class="title-breadcrumb clearfix" style="text-align: center;">
-                        <h1 style="text-align: center;">MEL COM</h1>
-                    </div> <!-- end .title-breadcrumb -->
-                </div> <!-- end .container -->
+            <div class="col-lg-12" style="margin-top: 40px;">
+                <div class="header-page-title our-agents-header" style="background-image: url('img/home-bg3.png');">
+
+                </div>
             </div>
         </div>
         <br><br>
