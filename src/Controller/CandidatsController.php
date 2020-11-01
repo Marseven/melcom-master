@@ -38,6 +38,7 @@ class CandidatsController extends AppController
 
     public function beforeFilter(EventInterface $event)
     {
+        debug($this->request);die;
         if (in_array($this->request->action, ['callback'])) {
             $this->getEventManager()->off($this->Csrf);
         }
@@ -263,7 +264,6 @@ class CandidatsController extends AppController
     }
 
     public function callback($candidat){
-        die;
         $candidatTable = TableRegistry::getTableLocator()->get('Candidats');
         $candidat = $candidatTable->get($candidat);
 
