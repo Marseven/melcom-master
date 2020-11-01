@@ -22,6 +22,7 @@ class CandidatsController extends AppController
         parent::initialize();
 
         $this->loadComponent('Paginator');
+        $this->loadComponent('Csrf');
 
         $this->Auth->allow(['index', 'add', 'view', 'payer', 'callback']);
         $user = $this->Auth->user();
@@ -33,6 +34,11 @@ class CandidatsController extends AppController
             $user = $usersTable->find()->contain(['Entreprises', 'Candidats'])->where(['id' => $user['id']])->first();
             $this->set('user', $user);
         }
+    }
+
+    public function beforeFilter(Event $event)
+    {
+        $this->eventManager()->off($this->Csrf);
     }
 
     public function index(){
@@ -257,8 +263,6 @@ class CandidatsController extends AppController
     public function callback($candidat){
         $candidatTable = TableRegistry::getTableLocator()->get('Candidats');
         $candidat = $candidatTable->get($candidat);
-
-        debug($candidat);die;
 
         $data_received = file_get_contents("php://input");
         $data_received_xml = new SimpleXMLElement($data_received);
