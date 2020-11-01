@@ -2,12 +2,9 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <div  class="index-page-search-content" style="margin-top: -50px; min-height:300px;">
-                    <div id="owl-demo" class="owl-carousel owl-theme">
-                        <div class="item" style="background: url('img/home-bg1.png') center center no-repeat; background-size: cover;"></div>
-                        <div class="item" style="background: url('img/home-bg2.png') center center no-repeat; background-size: cover;"></div>
-                        <div class="item" style="background: url('img/home-bg3.png') center center no-repeat; background-size: cover;"></div>
-                    </div>
+            <div class="header-page-title our-agents-header" style="background-image: url('img/home-bg1.png');">
+                <div class="title-overlay"></div>
+
                 </div> <!-- end .header-nav-bar -->
             </div>
         </div>
