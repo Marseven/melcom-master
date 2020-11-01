@@ -221,6 +221,6 @@ class AppController extends Controller
             'postuler' => $postuler,
             'contacter' => $contacter,
         ));
-      }
+    }
 
 }

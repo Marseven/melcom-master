@@ -12,7 +12,6 @@ use Cake\Mailer\Email;
 use Cake\View\Exception\MissingTemplateException;
 use Cake\ORM\TableRegistry;
 use SimpleXMLElement;
-use Cake\Network\Exception\InvalidCsrfTokenException;
 
 class CandidatsController extends AppController
 {
@@ -37,7 +36,7 @@ class CandidatsController extends AppController
         }
     }
 
-    public function beforeFilter(Event $event)
+    public function beforeFilter(EventInterface $event)
     {
         $this->eventManager()->off($this->Csrf);
     }
