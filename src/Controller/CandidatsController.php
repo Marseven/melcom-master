@@ -38,7 +38,9 @@ class CandidatsController extends AppController
 
     public function beforeFilter(EventInterface $event)
     {
-        $this->eventManager()->off($this->Csrf);
+        if (in_array($this->request->action, ['callback'])) {
+            $this->getEventManager()->off($this->Csrf);
+        }
     }
 
     public function index(){
