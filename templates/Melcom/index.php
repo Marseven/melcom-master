@@ -1,6 +1,6 @@
 <div id="page-content" class="page-content pt60">
     <div class="container">
-        <div class="row">
+        <div class="row" style="margin-top: -20px;">
             <div class="col-lg-12">
             <div class="header-page-title our-agents-header" style="background-image: url('img/home-bg3.png');">
                 <div class="title-overlay"></div>
@@ -12,7 +12,7 @@
                 </div> <!-- end .container -->
             </div>
         </div>
-        <br>
+        <br><br>
         <div class="row">
 
             <div class="col-sm-8 page-content">
