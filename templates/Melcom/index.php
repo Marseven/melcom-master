@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <div class="header-page-title our-agents-header" style="height: 300px;">
+                <div class="" style="">
                     <div id="owl-demo" class="owl-carousel owl-theme">
 
                     <div class="item"
@@ -16,6 +16,7 @@
                 </div> <!-- end .header-nav-bar -->
             </div>
         </div>
+        <br>
         <div class="row">
 
             <div class="col-sm-8 page-content">
