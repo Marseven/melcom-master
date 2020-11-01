@@ -23,7 +23,6 @@ class CandidatsController extends AppController
         parent::initialize();
 
         $this->loadComponent('Paginator');
-        $this->loadComponent('Csrf');
 
         $this->Auth->allow(['index', 'add', 'view', 'payer', 'callback']);
         $user = $this->Auth->user();
