@@ -258,6 +258,8 @@ class CandidatsController extends AppController
         $candidatTable = TableRegistry::getTableLocator()->get('Candidats');
         $candidat = $candidatTable->get($candidat);
 
+        debug($candidat);die;
+
         $data_received = file_get_contents("php://input");
         $data_received_xml = new SimpleXMLElement($data_received);
         $ligne_response = $data_received_xml[0];
