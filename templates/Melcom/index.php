@@ -1,17 +1,21 @@
-<div class="header-page-title our-agents-header" style="height: 300px;">
-        <div id="owl-demo" class="owl-carousel owl-theme">
-
-        <div class="item"
-            style="background: url('img/home-bg.jpg') center center no-repeat; background-size: cover;"></div>
-        <div class="item"
-            style="background: url('img/home-bg2.jpg') center center no-repeat; background-size: cover;"></div>
-        <div class="item"
-            style="background: url('img/home-bg3.jpg') center center no-repeat; background-size: cover;"></div>
-
-        </div>
-</div> <!-- end .header-nav-bar -->
 <div id="page-content" class="page-content pt60">
     <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="header-page-title our-agents-header" style="height: 300px;">
+                    <div id="owl-demo" class="owl-carousel owl-theme">
+
+                    <div class="item"
+                        style="background: url('img/home-bg.jpg') center center no-repeat; background-size: cover;"></div>
+                    <div class="item"
+                        style="background: url('img/home-bg2.jpg') center center no-repeat; background-size: cover;"></div>
+                    <div class="item"
+                        style="background: url('img/home-bg3.jpg') center center no-repeat; background-size: cover;"></div>
+
+                    </div>
+                </div> <!-- end .header-nav-bar -->
+            </div>
+        </div>
         <div class="row">
 
             <div class="col-sm-8 page-content">
