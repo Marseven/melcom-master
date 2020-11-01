@@ -6,9 +6,8 @@
                 <div class="title-overlay"></div>
                 <div class="container">
                     <div class="title-breadcrumb clearfix" style="text-align: center;">
-                        <h1>MEL COM</h1>
+                        <h1 style="text-align: center;">MEL COM</h1>
                     </div> <!-- end .title-breadcrumb -->
-
                 </div> <!-- end .container -->
             </div>
         </div>
