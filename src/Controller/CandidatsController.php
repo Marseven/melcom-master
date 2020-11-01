@@ -263,6 +263,7 @@ class CandidatsController extends AppController
     }
 
     public function callback($candidat){
+        die;
         $candidatTable = TableRegistry::getTableLocator()->get('Candidats');
         $candidat = $candidatTable->get($candidat);
 
