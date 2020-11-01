@@ -12,6 +12,7 @@ use Cake\Mailer\Email;
 use Cake\View\Exception\MissingTemplateException;
 use Cake\ORM\TableRegistry;
 use SimpleXMLElement;
+use Cake\Network\Exception\InvalidCsrfTokenException;
 
 class CandidatsController extends AppController
 {
