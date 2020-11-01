@@ -2,10 +2,14 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-            <div class="header-page-title our-agents-header" style="background-image: url('img/home-bg1.png');">
+            <div class="header-page-title our-agents-header" style="background-image: url('img/home-bg3.png');">
                 <div class="title-overlay"></div>
+                <div class="container">
+                    <div class="title-breadcrumb clearfix" style="text-align: center;">
+                        <h1>MEL COM</h1>
+                    </div> <!-- end .title-breadcrumb -->
 
-                </div> <!-- end .header-nav-bar -->
+                </div> <!-- end .container -->
             </div>
         </div>
         <br>
