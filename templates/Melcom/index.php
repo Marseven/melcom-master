@@ -1,7 +1,7 @@
 <div id="page-content" class="page-content pt60">
     <div class="container">
         <div class="row" style="margin-top: -40px;">
-            <div class="col-lg-12" style="margin-top: 40px;">
+            <div class="col-lg-12">
                 <div class="header-page-title our-agents-header" style="background-image: url('img/home-bg3.png');">
 
                 </div>
