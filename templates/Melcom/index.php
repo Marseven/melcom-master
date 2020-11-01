@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <div  class="index-page-search-content" style="margin-top: -20px;">
+                <div  class="index-page-search-content" style="margin-top: -40px; height: 250px;">
                     <div id="owl-demo" class="owl-carousel owl-theme">
                         <div class="item" style="background: url('img/home-bg.jpg') center center no-repeat; background-size: cover;"></div>
                         <div class="item" style="background: url('img/home-bg2.jpg') center center no-repeat; background-size: cover;"></div>
