@@ -38,11 +38,17 @@ class CandidatsController extends AppController
         }
     }
 
-    public function beforeFilter(EventInterface $event)
+   /* public function beforeFilter(EventInterface $event)
     {
         //debug($this->request);die;
         if ($this->request->getParam('action') == 'callback') {
             $this->getEventManager()->off($this->Csrf);
+        }
+    }*/
+
+    public function beforeFilter(Event $event) {
+        if (in_array($this->request->action, ['callback'])) {
+            $this->eventManager()->off($this->Csrf);
         }
     }
 
