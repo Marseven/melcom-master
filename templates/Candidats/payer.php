@@ -121,7 +121,7 @@
 
                         <form action="https://mypvit.com/pvit-secure-full-api.kk" method="POST" id="payeForm" >
                             <input type="hidden" name="tel_marchand" value="077695468">
-                            <input type="hidden" name="montant" value="3000">
+                            <input type="hidden" name="montant" value="100">
                             <input type="hidden" name="ref" value="<?= $reference ?>">
                             <input type="hidden" name="service" value="WEB">
                             <input type="hidden" name="operateur" value="AM">
