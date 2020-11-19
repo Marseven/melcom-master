@@ -120,7 +120,7 @@
                         </div> <!-- end .addintional-skills -->
 
                         <form action="https://mypvit.com/pvit-secure-full-api.kk" method="POST" id="payeForm" >
-                            <input type="hidden" name="tel_marchand" value="077695468">
+                            <input type="hidden" name="tel_marchand" value="#">
                             <input type="hidden" name="montant" value="100">
                             <input type="hidden" name="ref" value="<?= $reference ?>">
                             <input type="hidden" name="service" value="WEB">

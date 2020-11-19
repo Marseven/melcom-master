@@ -241,7 +241,7 @@
       <footer id="footer">
         <div class="copyright">
           <div class="container">
-            <p>2020 Mel Com &copy; Tout Droits Réservés.</p>
+            <p>2020 Cod'On &copy; Tout Droits Réservés.</p>
 
             <ul class="list-inline">
               <li><a href="#"><i class="fa fa-facebook"></i></a></li>
