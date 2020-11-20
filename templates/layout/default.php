@@ -57,7 +57,7 @@
                 <div class="row">
                   <div class="col-md-3 col-sm-3">
                     <div class="logo-section">
-                        <a href="<?= $this->Url->build(['controller' => 'Melcom', 'action' => 'index']) ?>"><?= $this->Html->image('logo-melcom.png', ['fullBase' => true]) ?></a>
+                        <a href="<?= $this->Url->build(['controller' => 'Rh', 'action' => 'index']) ?>"><?= $this->Html->image('logo-Rh.png', ['fullBase' => true]) ?></a>
                     </div>
                   </div>
 
@@ -97,7 +97,7 @@
 
                   <div class="col-md-3 col-sm-3">
                     <div class="logo-section">
-                      <a href="<?= $this->Url->build(['controller' => 'Melcom', 'action' => 'index']) ?>"><?= $this->Html->image('logo-melcom.png', ['fullBase' => true]) ?></a>
+                      <a href="<?= $this->Url->build(['controller' => 'Rh', 'action' => 'index']) ?>"><?= $this->Html->image('logo-Rh.png', ['fullBase' => true]) ?></a>
                     </div>
                   </div>
 
@@ -170,14 +170,14 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                   </button>
-                  <a class="navbar-brand" href="<?= $this->Url->build(['controller' => 'Melcom', 'action' => 'index']) ?>"><?= $this->Html->image('logo-melcom.png', ['style' => 'width:50%; heigth:auto;','fullBase' => true]) ?></a>
+                  <a class="navbar-brand" href="<?= $this->Url->build(['controller' => 'Rh', 'action' => 'index']) ?>"><?= $this->Html->image('logo-Rh.png', ['style' => 'width:50%; heigth:auto;','fullBase' => true]) ?></a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                   <ul class="nav navbar-nav">
-                    <li class="<?= $home ?>"><a href="<?= $this->Url->build(['controller' => 'Melcom', 'action' => 'index']) ?>">Accueil</a></li>
-                    <li class="<?= $about ?>"><a href="<?= $this->Url->build(['controller' => 'Melcom', 'action' => 'apropos']) ?>">À Propos</a></li>
+                    <li class="<?= $home ?>"><a href="<?= $this->Url->build(['controller' => 'Rh', 'action' => 'index']) ?>">Accueil</a></li>
+                    <li class="<?= $about ?>"><a href="<?= $this->Url->build(['controller' => 'Rh', 'action' => 'apropos']) ?>">À Propos</a></li>
                     <li class="dropdown <?= $ance ?>">
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Annonces
                         <span class="caret"></span></a>
@@ -215,7 +215,7 @@
                           </li>
                       <?php } ?>
 
-                      <li class="<?= $contacter ?>"><a href="<?= $this->Url->build(['controller' => 'Melcom', 'action' => 'contact']) ?>">Contact</a></li>
+                      <li class="<?= $contacter ?>"><a href="<?= $this->Url->build(['controller' => 'Rh', 'action' => 'contact']) ?>">Contact</a></li>
 
                   </ul>
 

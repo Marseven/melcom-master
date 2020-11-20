@@ -5,7 +5,7 @@
             <h1><?= $candidat->nom ?></h1>
 
             <ol class="breadcrumb">
-                <li><a href="<?= $this->Url->build(['controller' => 'Melcom', 'action' => 'index']) ?>">Accueil</a></li>
+                <li><a href="<?= $this->Url->build(['controller' => 'Rh', 'action' => 'index']) ?>">Accueil</a></li>
                 <li class="active">La candidature</li>
             </ol>
         </div> <!-- end .title-breadcrumb -->

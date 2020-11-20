@@ -12,7 +12,7 @@ use App\Controller\AppController;
 use App\Form\ContactForm;
 use Cake\ORM\TableRegistry;
 
-class MelcomController extends AppController
+class RhController extends AppController
 {
 
     public function initialize(): void

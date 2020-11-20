@@ -5,7 +5,7 @@
             <h1>Mes Candidatures</h1>
 
             <ol class="breadcrumb">
-                <li><a href="<?= $this->Url->build(['controller' => 'Melcom', 'action' => 'index']) ?>">Accueil</a></li>
+                <li><a href="<?= $this->Url->build(['controller' => 'Rh', 'action' => 'index']) ?>">Accueil</a></li>
                 <li class="active">Les annonces</li>
             </ol>
         </div> <!-- end .title-breadcrumb -->
@@ -24,7 +24,7 @@
 
                             <div class="widget-content">
                                 <span class="search-tex">Je cherche ...</span>
-                                <form action="<?= $this->Url->build(['controller' => 'Melcom', 'action' => 'search']) ?>" method="GET">
+                                <form action="<?= $this->Url->build(['controller' => 'Rh', 'action' => 'search']) ?>" method="GET">
                                     <input type="text" required name="q" class="form-control mt10" placeholder="Mot Clé">
                                     <br>
                                     <select name="cat" required class="form-control mt10 mb10">

@@ -5,7 +5,7 @@
             <h1>Recherche</h1>
 
             <ol class="breadcrumb">
-                <li><a href="<?= $this->Url->build(['controller' => 'Melcom', 'action' => 'index']) ?>">Accueil</a></li>
+                <li><a href="<?= $this->Url->build(['controller' => 'Rh', 'action' => 'index']) ?>">Accueil</a></li>
                 <li class="active">Recherche</li>
             </ol>
         </div> <!-- end .title-breadcrumb -->

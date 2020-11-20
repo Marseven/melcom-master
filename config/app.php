@@ -17,7 +17,7 @@ return [
      * Development Mode:
      * true: Errors and warnings shown.
      */
-    'debug' => filter_var(env('DEBUG', true), FILTER_VALIDATE_BOOLEAN),
+    'debug' => filter_var(env('DEBUG', false), FILTER_VALIDATE_BOOLEAN),
 
     /*
      * Configure basic information about the application.
@@ -261,7 +261,7 @@ return [
     'Email' => [
         'default' => [
             'transport' => 'default',
-            'from' => 'contact@melcom.com',
+            'from' => 'contact@Rh.com',
             /*
              * Will by default be set to config value of App.encoding, if that exists otherwise to UTF-8.
              */
@@ -299,9 +299,9 @@ return [
             'driver' => Mysql::class,
             'persistent' => false,
             'host' => 'localhost',
-            'username' => 'u818055578_melcom',
-            'password' => 'Melcom@2020',
-            'database' => 'u818055578_melcom',
+            'username' => 'root',
+            'password' => '',
+            'database' => 'rh',
             'timezone' => 'UTC',
 
             /**

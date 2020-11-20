@@ -5,7 +5,7 @@
             <h1>Contact</h1>
 
             <ol class="breadcrumb">
-                <li><a href="<?= $this->Url->build(['controller' => 'Melcom', 'action' => 'index']) ?>">Accueil</a></li>
+                <li><a href="<?= $this->Url->build(['controller' => 'Rh', 'action' => 'index']) ?>">Accueil</a></li>
                 <li class="active">Contact</li>
             </ol>
         </div> <!-- end .title-breadcrumb -->
@@ -30,12 +30,12 @@
                     <address>
                       328 Rue Luc Marc Ivaga, Libreville <br>
                       Gabon <br>
-                     Mel Com
+                     RH
                     </address>
 
                     <p>
                       Téléphone : <a href="tel:+11234567890">+241 74 36 63 11</a> <br>
-                      Email : <a href="mailto:melcomservices@gmail.com">melcomservices@gmail.com</a>
+                      Email : <a href="mailto:Rhservices@gmail.com">rh@gmail.com</a>
                     </p>
                   </div>
                 </div>

@@ -23,8 +23,6 @@ class CandidatsController extends AppController
         parent::initialize();
 
         $this->loadComponent('Paginator');
-        $this->loadComponent('Csrf');
-
 
         $this->Auth->allow(['index', 'add', 'view', 'payer', 'callback']);
         $user = $this->Auth->user();
@@ -35,12 +33,6 @@ class CandidatsController extends AppController
             $usersTable = TableRegistry::getTableLocator()->get('Users');
             $user = $usersTable->find()->contain(['Entreprises', 'Candidats'])->where(['id' => $user['id']])->first();
             $this->set('user', $user);
-        }
-    }
-
-    public function beforeFilter(Event $event) {
-        if (in_array($this->request->action, ['callback'])) {
-            $this->eventManager()->off($this->Csrf);
         }
     }
 
@@ -137,7 +129,7 @@ class CandidatsController extends AppController
                         $annonce_candidatTable->save($annonce_candidat);
 
                         $mail = new Email();
-                        $mail->setFrom('support@melcom.com')
+                        $mail->setFrom('support@Rh.com')
                             ->setTo($user->email)
                             ->setSubject('[Mel Com] Bienvenu sur Mel Com !')
                             ->setEmailFormat('html')
@@ -257,7 +249,7 @@ class CandidatsController extends AppController
             $this->set('_serialize', ['reference']);
         }else{
             $this->Flash->success('Cette candidature est déjà en cours de traitement.');
-            $this->redirect(['controller' => 'Melcom','action' => 'index']);
+            $this->redirect(['controller' => 'Rh','action' => 'index']);
         }
 
         $this->menu('postuler');
@@ -292,9 +284,9 @@ class CandidatsController extends AppController
         if($statut_received == 200){
                 //envoi d'un email pour informer le client de son code secret
             $mail = new Email();
-            $mail->setFrom('contact@melcom.com')
+            $mail->setFrom('contact@Rh.com')
                 ->setTo($candidat->email)
-                ->setSubject('Candidature - Melcom ')
+                ->setSubject('Candidature - Rh ')
                 ->setEmailFormat('html')
                 ->setTemplate('information')
                 ->setViewVars(array(
@@ -306,7 +298,7 @@ class CandidatsController extends AppController
             $candidatTable->save($candidat);
 
             $this->Flash->success('candidature enregistrée et en cours de traitement, Nous reviendrons vers vous rapidement');
-            $this->redirect(['controller' => 'Melcom','action' => 'index']);
+            $this->redirect(['controller' => 'Rh','action' => 'index']);
 
         }else{
             $this->Flash->error($message_received);

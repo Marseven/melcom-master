@@ -5,7 +5,7 @@
             <h1>Modification</h1>
 
             <ol class="breadcrumb">
-                <li><a href="<?= $this->Url->build(['controller' => 'Melcom', 'action' => 'index']) ?>">Accueil</a></li>
+                <li><a href="<?= $this->Url->build(['controller' => 'Rh', 'action' => 'index']) ?>">Accueil</a></li>
                 <li class="active">Modification de la candidature</li>
             </ol>
         </div> <!-- end .title-breadcrumb -->
@@ -126,12 +126,12 @@
                         <div style="padding: 0 20px 0 20px;">
                             <h2><strong>[IMPORTANT]</strong></h2>
                             <p>
-                                Le dépôt d’un dossier de candidature à un poste publié par la structure MEL Com est automatiquement actionné par un coaching prévu avant l’entretient (lorsque le postulant est retenue), le postulant reçoit un coaching sur en rapport avec la structure partenaire.
-                                En cas d’embauche, l’ex postulant à le devoir de fournir une photo de lui à son poste de travail a Mel Com pour l’archivage numérique (Facebook).
+                                Le dépôt d’un dossier de candidature à un poste publié par la structure  est automatiquement actionné par un coaching prévu avant l’entretient (lorsque le postulant est retenue), le postulant reçoit un coaching sur en rapport avec la structure partenaire.
+                                En cas d’embauche, l’ex postulant à le devoir de fournir une photo de lui à son poste de travail a  pour l’archivage numérique (Facebook).
                                 Ce partage ne garantit en rien l’emploi du candidat, mais une maîtrise de base au sujet de l'entreprise a là qu’elle il veut appartenir.
                                 Les frais de coaching sont à 3000 mille francs CFA non remboursables, et ne sont  pas les frais de dossier.
                                 Les frais de dossier de stage sont de : 25 000f CFA, payable après un entretien concluant.
-                                Suite à la remarque de nos clients, la formation est obligatoire pour tout postulant à MEL Com.
+                                Suite à la remarque de nos clients, la formation est obligatoire pour tout postulant à .
                             </p>
                         </div>
                       </div>

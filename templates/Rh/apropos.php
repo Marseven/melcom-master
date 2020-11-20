@@ -26,7 +26,7 @@
                                         <img src="img/content/client-profile-logo.jpg" alt="">
                                         <?= $this->Html->image('logo-melcom.png', ['fullBase' => true]) ?>
 
-                                        <a href="#">Melcom</a>
+                                        <a href="#">RH</a>
                                     </div> <!-- end .agent-profile-picture -->
 
                                     <div class="client-profile-deatils">
@@ -36,7 +36,7 @@
 
                                         <div class="client-sidebar-area">
                                             <h5>Specialties</h5>
-                                            <p>Mel com est une agence de communication marketing, de placement du personnel et stage, nous faisons a votre place les démarches de recherche d'emploi ou de stage, et vous proposons le meilleur personnel.
+                                            <p>RH est une agence de communication marketing, de placement du personnel et stage, nous faisons a votre place les démarches de recherche d'emploi ou de stage, et vous proposons le meilleur personnel.
                                             </p>
 
                                             <h5>Domine</h5>
@@ -54,13 +54,13 @@
 
                                         <div class="client-sidebar-area">
                                             <h5>Website</h5>
-                                            <p>https://www.melcomga.com</p>
+                                            <p>https://www.rh.com</p>
 
                                             <h5>Téléphone</h5>
                                             <p>+241 74 36 63 11</p>
 
                                             <h5>Email</h5>
-                                            <p>melcomservices@gmail.com</p>
+                                            <p>rh@gmail.com</p>
                                         </div>
                                         <!-- end .client-sidebar-area -->
 
@@ -80,10 +80,10 @@
 
                                     <div class="candidate-details">
                                         <div class="candidate-title">
-                                            <h5>A Propos de Melcom</h5>
+                                            <h5>A Propos de RH</h5>
                                         </div>
 
-                                        <p>Mel com est une agence de communication marketing, de placement du personnel et stage, nous faisons a votre place les démarches de recherche d'emploi ou de stage, et vous proposons le meilleur personnel.
+                                        <p> est une agence de communication marketing, de placement du personnel et stage, nous faisons a votre place les démarches de recherche d'emploi ou de stage, et vous proposons le meilleur personnel.
                                             </p>
 
                                     </div> <!-- end .candidate-details -->

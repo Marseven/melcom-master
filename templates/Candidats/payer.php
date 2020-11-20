@@ -5,7 +5,7 @@
             <h1>Paiment</h1>
 
             <ol class="breadcrumb">
-                <li><a href="<?= $this->Url->build(['controller' => 'Melcom', 'action' => 'index']) ?>">Accueil</a></li>
+                <li><a href="<?= $this->Url->build(['controller' => 'Rh', 'action' => 'index']) ?>">Accueil</a></li>
                 <li class="active">Postuler</li>
             </ol>
         </div> <!-- end .title-breadcrumb -->
@@ -125,7 +125,7 @@
                             <input type="hidden" name="ref" value="<?= $reference ?>">
                             <input type="hidden" name="service" value="WEB">
                             <input type="hidden" name="operateur" value="AM">
-                            <input type="hidden" name="redirect" value="http://melcom.boostetoncv.com/candidats/callback/<?= $candidat->id ?>">
+                            <input type="hidden" name="redirect" value="http://Rh.boostetoncv.com/candidats/callback/<?= $candidat->id ?>">
                             <div class="save-cancel-button ml20">
                                 <input class="btn btn-default" type="submit" name="submitButton" value="PAYER"/>
                                 <a href="<?= $this->Url->build(['controller' => 'Candidats', 'action' => 'edit', $candidat->id]) ?>"><button class="btn btn-black">Modifier</button></a>
